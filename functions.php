@@ -6,6 +6,7 @@ define('THEME_URI', get_theme_file_uri());
 define('THEME_PATH', get_theme_file_path());
 // INCLUDES
 include('includes/enqueue.php');
+include('includes/custom_setting.php');
 include('includes/custom_post_type.php');
 include('src/Controllers/MenuController.php');
 
@@ -20,23 +21,31 @@ add_action('init', 'quandoan_nav_menu');
  * SHORT CODE
  */
 
-add_shortcode('quan_render_portfolio', 'quanRenderPortfolio');
-function  quanRenderPortfolio($aAtts)
+
+add_shortcode('quan_render_info', 'quanRenderInfo');
+function quanRenderInfo($aAtts)
 {
     $aAtts = shortcode_atts([
-        'items_per_row'    => 3,
-        'number_of_rows'   => 2,
+        'post_type'        => '',
+        'date_format'      => '',
         'heading'          => '',
-        'toggle_view_more' =>  'enable',
+        'toggle_view_more' => 'enable',
     ], $aAtts);
 
     $aArgs = [
-        'post_type' => 'portfolios',
-        'posts_per_page' => $aAtts['number_of_rows'] * $aAtts['items_per_row'],
+        'post_type'   => $aAtts['post_type'],
+        'date_format' => $aAtts['date_format'],
         'post_status' => 'publish'
     ];
-
     $query = new WP_Query($aArgs);
+    $callback_func = 'quanRender' . ucfirst($aArgs['post_type']);
+    call_user_func($callback_func, $query);
+    wp_reset_postdata();
+}
+
+add_shortcode('quan_render_portfolios', 'quanRenderPortfolios');
+function  quanRenderPortfolios($query)
+{
     if ($query->have_posts()) :
         $post  = -1;
         while ($query->have_posts()) :
@@ -57,28 +66,16 @@ function  quanRenderPortfolio($aAtts)
         <?php
         endwhile;
     endif;
-    wp_reset_postdata();
 }
 
 
 
 
-add_shortcode('quan_render_news', 'quanRenderNews');
-function quanRenderNews($aAtts)
+add_shortcode('quan_render_post', 'quanRenderPost');
+function quanRenderPost($query)
 {
-    $aAtts = shortcode_atts([
-        'items_per_row'    => 3,
-        'number_of_rows'   => 2,
-        'heading'          => '',
-        'toggle_view_more' =>  'enable',
-    ], $aAtts);
-
-    $aArgs = [
-        'post_type'      => 'post',
-        'posts_per_page' => $aAtts['number_of_rows'] * $aAtts['items_per_row'],
-        'post_status'    => 'publish'
-    ];
-    $query = new WP_Query($aArgs);
+    return $query;
+    die;
     if ($query->have_posts()) :
         $post  = -1;
         while ($query->have_posts()) :
@@ -88,60 +85,30 @@ function quanRenderNews($aAtts)
         ?>
             <div class="col-12 col-lg-4 blog-box">
                 <h6><?php echo $posts[$post]->post_title ?></h6>
-                <p><?php  ?></p>
-                <p>Vestibulum ac diam sit amet quam vehicula elementum amet est on dui. Nulla porttitor accumsan tincidunt.</p>
+                <p><?php echo date_i18n($query->query['date_format'], strtotime($posts[$post]->post_date)); ?></p>
+                <p><?php echo $posts[$post]->post_content ?></p>
             </div>
     <?php
         endwhile;
     endif;
-    wp_reset_postdata();
 }
 
 
-add_shortcode('our_service', function ($aAtts, $content = null) {
+add_shortcode('quan_render_title', 'quanRenderTitle');
+function quanRenderTitle($aAtts)
+{
     $aAtts = shortcode_atts([
-        [
-            'icon' => '',
-            'heading' => '',
-            'desc' => ''
-        ]
+        'subtitle' => '',
+        'title'    => '',
     ], $aAtts);
-
+    $subtitle = strtoupper($aAtts['subtitle']);
+    $title = $aAtts['title'];
     ?>
-    <div>
-        <div class="col-12 col-sm-12 col-lg-4 service-txt">
-            <h2>Anything you need,we’ve got you covered</h2>
-            <div class="hero-btns service-btn">
-                <a data-scroll="" href="#contact-us">Get in Touch</a>
-            </div>
-        </div>
-        <?php
-        if (!empty($content)) {
-            echo do_shortcode($content);
-        } ?>
-    </div>
+    <h5>
+        <?php echo $subtitle; ?>
+    </h5>
+    <h2>
+        <?php echo $title; ?>
+    </h2>
 <?php
-});
-
-add_action('quan-s_theme/footer/before-footer', function () {
-    echo 2;
-}, 10);
-
-
-
-add_action('quan-s_theme/footer/before-footer', function () {
-    echo 1;
-}, 1);
-
-
-add_filter('quan-s_theme/filter/footer/social-networks', function ($aSocialNetworks, $number) {
-    $aSocialNetworks['zalo'] = '#';
-    unset($aSocialNetworks['facebook']);
-    return $aSocialNetworks;
-}, 10, 2);
-
-
-add_filter('quan-s_theme/filter/footer/social-networks', function ($aSocialNetworks, $number) {
-    $aSocialNetworks['twiitter'] = '#';
-    return $aSocialNetworks;
-}, 1, 2);
+}
