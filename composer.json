@@ -1,0 +1,17 @@
+{
+  "name": "quandoan/quan-s_theme",
+  "description": "just my theme",
+  "authors": [
+    {
+      "name": "Quan Doan",
+      "email": "qdoan21.legion@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "phpunit/phpunit": "^7.2",
+    "wilokecom/phpcli": "^1.22",
+    "vimeo/psalm": "^4.6",
+    "phpro/grumphp": "dev-master"
+  }
+}
