@@ -82,17 +82,19 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-            <?php quanRenderTitle([
-              'title' => 'Check out our portfolios',
-            ]); ?>
+          <?php
+          // quanRenderTitle([
+          //   'title' => 'Check out our portfolios',
+          // ]); 
+          ?>
         </div>
       </div>
       <div class="row">
-        <?php quanRenderInfo([
-          'post_type'        => 'portfolios',
-          'heading'          => '',
-          'toggle_view_more' => 'enable',
-        ]); ?>
+        <?php
+        // mainController::renderInfo([
+        //   'post_type' => 'portfolios',
+        // ]);
+        ?>
       </div>
 
       <div class="row">
@@ -113,10 +115,12 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-            <?php quanRenderTitle([
-              'subtitle' => 'post',
-              'title' => 'Checkout our Post',
-            ]); ?>
+          <?php
+          //  quanRenderTitle([
+          //   'subtitle' => 'post',
+          //   'title' => 'Checkout our Post',
+          // ]); 
+          ?>
         </div>
       </div>
       <div id="blog-drag" class="row blog-slider">
@@ -128,12 +132,12 @@
           <!-- Blog Post -->
           <p>Vestibulum ac diam sit amet quam vehicula elementum amet est on dui. Nulla porttitor accumsan tincidunt.</p>
         </div>
-        <?php quanRenderInfo([
-          'post_type'        => 'post',
+        <?php
+        mainController::renderInfo([
+          'post_type' => 'post',
           'date_format'      => 'M d, Y',
-          'heading'          => '',
-          'toggle_view_more' => 'enable',
-        ]); ?>
+        ]);
+        ?>
         <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->
         <button class="hide-me" id="blog-btn">Show More Stories</button>
       </div>

@@ -8,6 +8,11 @@
     }
   ],
   "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Basic\\": "src/"
+    }
+  },
   "require": {
     "phpunit/phpunit": "^7.2",
     "wilokecom/phpcli": "^1.22",
