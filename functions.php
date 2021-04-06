@@ -74,8 +74,6 @@ function  quanRenderPortfolios($query)
 add_shortcode('quan_render_post', 'quanRenderPost');
 function quanRenderPost($query)
 {
-    return $query;
-    die;
     if ($query->have_posts()) :
         $post  = -1;
         while ($query->have_posts()) :
