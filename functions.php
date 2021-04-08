@@ -6,9 +6,10 @@ define('THEME_URL', get_stylesheet_directory());
 define('CORE', THEME_URL . "/core");
 require_once( CORE . "/init.php");
 // INCLUDES
-include('includes/enqueue.php');
-include('includes/custom_setting.php');
-include('includes/custom_post_type.php');
+include('src/script/enqueue.php');
+include('src/script/custom_setting.php');
+include('src/script/custom_post_type.php');
+include('src/script/custom_action_hook.php');
 include('src/Portfolios/Controllers/PortfolioController.php');
 include('src/Posts/Controllers/PostController.php');
 include('src/mainController.php');

@@ -83,17 +83,19 @@
       <div class="row">
         <div class="col-12">
           <?php
-          // quanRenderTitle([
-          //   'title' => 'Check out our portfolios',
-          // ]); 
+          mainController::quanRenderTitle([
+            'title' => 'Checkout our portfolios',
+          ]); 
           ?>
         </div>
       </div>
       <div class="row">
         <?php
-        // mainController::renderInfo([
-        //   'post_type' => 'portfolios',
-        // ]);
+        mainController::renderInfo([
+          'post_type' => 'portfolios',
+          'items_per_row' => '3',
+          'number_of_row' => '2',
+        ]);
         ?>
       </div>
 
@@ -116,26 +118,24 @@
       <div class="row">
         <div class="col-12">
           <?php
-          //  quanRenderTitle([
-          //   'subtitle' => 'post',
-          //   'title' => 'Checkout our Post',
-          // ]); 
+          mainController::quanRenderTitle([
+            'subtitle' => 'post',
+            'title' => 'Checkout our Post',
+          ]); 
           ?>
         </div>
       </div>
       <div id="blog-drag" class="row blog-slider">
-        <div class="col-12 col-lg-4 blog-box blog-first">
-          <!-- Blog Post Title -->
-          <h6>NEW ADVENTURE</h6>
-          <!-- Blog Post Date -->
-          <p>17 March 2019</p>
-          <!-- Blog Post -->
-          <p>Vestibulum ac diam sit amet quam vehicula elementum amet est on dui. Nulla porttitor accumsan tincidunt.</p>
-        </div>
         <?php
         mainController::renderInfo([
-          'post_type' => 'post',
-          'date_format'      => 'M d, Y',
+          'post_type'     => 'post',
+          'date_format'   => 'M d, Y',
+          'type_of_post'  => '',
+          'items_per_row' => '3',
+          'number_of_row' => '4',
+          'type_of_post'  => '',
+          'wanted_strlen' => '30',
+          'end'           => '.....'
         ]);
         ?>
         <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->
