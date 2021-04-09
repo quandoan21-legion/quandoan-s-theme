@@ -92,8 +92,8 @@
       <div class="row">
         <?php
         mainController::renderInfo([
-          'post_type' => 'portfolios',
-          'items_per_row' => '3',
+          'post_type'     => 'portfolios',
+          'items_per_row' => '',
           'number_of_row' => '2',
         ]);
         ?>
@@ -130,12 +130,12 @@
         mainController::renderInfo([
           'post_type'     => 'post',
           'date_format'   => 'M d, Y',
-          'type_of_post'  => '',
-          'items_per_row' => '3',
+          'items_per_row' => '',
           'number_of_row' => '4',
           'type_of_post'  => '',
-          'wanted_strlen' => '30',
-          'end'           => '.....'
+          'wanted_strlen' => '2',
+          'type_of_post'  => '',
+          'end'           => '....',
         ]);
         ?>
         <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->

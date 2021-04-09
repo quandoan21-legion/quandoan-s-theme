@@ -371,9 +371,17 @@ p {
 .work-box {
   margin-bottom: 30px;
 }
+.work-box1 {
+  margin-bottom: 30px;
+}
 .work-box img {
   width: 370px;
   height: auto;
+}
+.work-box1 img {
+  width: 370px;
+  height: 370px;
+  object-fit: cover;
 }
 /* Portfolio Gallery Hover */
 .photobox{

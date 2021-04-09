@@ -10,6 +10,7 @@ include('src/script/enqueue.php');
 include('src/script/custom_setting.php');
 include('src/script/custom_post_type.php');
 include('src/script/custom_action_hook.php');
+include('src/script/custom_filter_hook.php');
 include('src/Portfolios/Controllers/PortfolioController.php');
 include('src/Posts/Controllers/PostController.php');
 include('src/mainController.php');

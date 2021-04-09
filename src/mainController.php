@@ -30,7 +30,7 @@ class mainController
         ?>
             <h5>
                 <?php
-                echo esc_attr($aAtts['subtitle']); 
+                echo strtoupper(esc_attr($aAtts['subtitle'])); 
                 ?>
             </h5>
             <h2>

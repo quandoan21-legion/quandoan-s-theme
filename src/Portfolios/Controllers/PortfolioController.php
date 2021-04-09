@@ -24,7 +24,7 @@ class PortfolioController
 		<div class="<?php echo esc_attr($aAtts['wrapper_classes']); ?>">
 			<div class="<?php echo esc_attr($aAtts['inner_classes']); ?>">
 				<!-- Replace Patch to Image Under -->
-				<img src="<?php do_action('get_img_url', $aAtts) ?>" alt="<?php echo esc_attr($post->post_title); ?>">
+				<img src="<?php echo apply_filters('get_img_url', $aAtts) ?>" alt="<?php echo apply_filters('get_title', $aAtts) ?>">
 				<!-- Replace Image Title Under -->
 				<span class="photobox__label"><?php echo esc_html($post->post_title); ?></span>
 			</div>
@@ -36,26 +36,32 @@ class PortfolioController
 	{
 
 		$portfolio = new PortfolioController;
-		$aAtts = wp_parse_args(
-			$aAtts,
+		$aAtts = shortcode_atts(
 			[
 				'items_per_row' => 3,
 				'number_of_row' => 4,
 				'inner_classes' => 'photobox__previewbox',
 				'image_size'    => 'medium'
 			],
+			$aAtts
 		);
-		if ($aAtts['items_per_row'] == 3) {
-			$classes = 'col-12 col-lg-4 work-box';
-		} else if ($aAtts['items_per_row'] == 4) {
-			$classes = 'col-12 col-lg-3 work-box';
+		
+		if ((is_numeric($aAtts['items_per_row']) == true && 
+		12 % $aAtts['items_per_row']) == 0 &&
+		$aAtts['items_per_row'] != 0
+		) 
+		{
+			$itemsPerRow = 12 / $aAtts['items_per_row'];
 		} else {
-			$classes = 'col-12 col-lg-6 work-box';
+			$itemsPerRow = 4;
 		}
+		
+
+		$classes = "col-12 col-lg-" . $itemsPerRow . " work-box1";
 
 		$query = new \WP_Query([
 			'post_type'      => 'portfolios',
-			'posts_per_page' => $aAtts['items_per_row'] * $aAtts['number_of_row'],
+			'posts_per_page' => $itemsPerRow * $aAtts['number_of_row'],
 			'post_status'    => 'publish'
 		]);
 		$html = '';
