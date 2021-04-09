@@ -6,18 +6,17 @@ define('THEME_URL', get_stylesheet_directory());
 define('CORE', THEME_URL . "/core");
 require_once( CORE . "/init.php");
 // INCLUDES
-include('src/script/enqueue.php');
-include('src/script/custom_setting.php');
-include('src/script/custom_post_type.php');
-include('src/script/custom_action_hook.php');
-include('src/script/custom_filter_hook.php');
+
 include('src/Portfolios/Controllers/PortfolioController.php');
 include('src/Posts/Controllers/PostController.php');
 include('src/mainController.php');
 
-
-// HOOK ACTION -FILTER
-add_action('wp_enqueue_scripts', 'qd_enqueue');
+// HOOK ACTION - FILTER
+include('src/Scripts/enqueue.php');
+include('src/Scripts/custom_setting.php');
+include('src/Scripts/custom_post_type.php');
+include('src/Scripts/custom_action_hook.php');
+include('src/Scripts/custom_filter_hook.php');
 // add_action('init', 'quandoan_nav_menu');
 
 

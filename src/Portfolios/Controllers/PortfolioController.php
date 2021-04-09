@@ -8,7 +8,7 @@ class PortfolioController
 		add_shortcode('quan_render_portfolio_item', [$this, 'renderPortfolioItem']);
 	}
 
-	public function renderPortfolioItem(\WP_Post $post, $aAtts = [])
+	public function renderPortfolioItem(\WP_Post $post,array $aAtts = [])
 	{
 		$postID = $post->ID;
 		$aAtts = wp_parse_args(
@@ -32,7 +32,7 @@ class PortfolioController
 		<?php
 	}
 
-	public function renderPortfolioItems($aAtts = [])
+	public function renderPortfolioItems(array $aAtts = [])
 	{
 
 		$portfolio = new PortfolioController;

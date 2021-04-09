@@ -8,7 +8,7 @@ class PostController
         add_shortcode('quan_render_post_item', [$this, 'renderPostItem']);
     }
 
-    public function renderPostItem(\WP_Post $post, $aAtts = [])
+    public function renderPostItem(\WP_Post $post, array $aAtts )
     {
         $aAtts = wp_parse_args($aAtts, [
             'post' => $post,
