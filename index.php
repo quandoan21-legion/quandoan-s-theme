@@ -130,7 +130,7 @@
         mainController::renderInfo([
           'post_type'     => 'post',
           'date_format'   => 'M d, Y',
-          'items_per_row' => '',
+          'items_per_row' => '123123',
           'number_of_row' => '4',
           'type_of_post'  => '',
           'wanted_strlen' => '2',

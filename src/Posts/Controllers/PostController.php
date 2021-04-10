@@ -8,17 +8,45 @@ class PostController
         add_shortcode('quan_render_post_item', [$this, 'renderPostItem']);
     }
 
-    public function renderPostItem(\WP_Post $post, array $aAtts )
+    public function renderPostItem(\WP_Post $post, array $aAtts)
     {
+        $postController = new PostController;
         $aAtts = wp_parse_args($aAtts, [
             'post' => $post,
         ]);
-
 ?>
-        <h6><?php echo apply_filters('get_title', $aAtts) ?></h6>
-        <p><?php echo apply_filters('get_date', $aAtts) ?></p>
-        <p><?php echo apply_filters('trim_content', $aAtts) ?></p>
+        <h6><?php echo $post->post_title ?></h6>
+        <p><?php echo $postController->renderPostDate($post, $aAtts) ?></p>
+        <p><?php echo $postController->renderTrimmedContents($post, $aAtts) ?></p>
         <?php
+    }
+
+    public function renderPostDate(object $post, array $aAtts)
+    {
+        $date = '';
+        $date =  date_i18n($aAtts['date_format'], strtotime(esc_attr($post->post_date)));
+        return $date;
+    }
+
+    public function renderTrimmedContents(object $post, array $aAgrs)
+    {
+        if ($aAgrs['wanted_strlen'] < 30) {
+            $wanted_strlen   =  30;
+        } else {
+            $wanted_strlen   =  $aAgrs['wanted_strlen'];
+        }
+        $myContent = '';
+        $post      = $aAgrs['post'];
+        $myContent = apply_filters('the_content', get_the_content(esc_attr($post->post_content)));
+        $myContent = wp_strip_all_tags($myContent);
+        if (strlen($myContent) > $wanted_strlen) {
+            $trimVal         = $wanted_strlen - strlen($myContent);
+            $myContent       = substr($myContent, 0, $trimVal);
+            $myContent      .= $aAgrs['end'];
+            return $myContent;
+        } else {
+            return $myContent;
+        }
     }
 
     public function renderPostItems(array $aAtts = [])
@@ -38,8 +66,8 @@ class PostController
             $aAtts
         );
 
-        $itemsPerRow = apply_filters('check_items_per_row', $aAtts['items_per_row']);
-        
+        $itemsPerRow = apply_filters('checkItemsPerRow', $aAtts['items_per_row']);
+
         switch ($aAtts['type_of_post']) {
             case '':
                 $classes = "col-12 col-lg-" . $itemsPerRow . " blog-box";
@@ -73,4 +101,6 @@ class PostController
         wp_reset_postdata();
         echo $html;
     }
+
+    
 }
