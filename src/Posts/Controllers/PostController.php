@@ -1,5 +1,9 @@
 <?php
 
+namespace Posts\Controllers;
+
+use Src\Scripts\CustomFilterHooks;
+
 class PostController
 {
     public function __construct()
@@ -10,43 +14,15 @@ class PostController
 
     public function renderPostItem(\WP_Post $post, array $aAtts)
     {
-        $postController = new PostController;
+        $filterHook = new CustomFilterHooks;
         $aAtts = wp_parse_args($aAtts, [
             'post' => $post,
         ]);
 ?>
         <h6><?php echo $post->post_title ?></h6>
-        <p><?php echo $postController->renderPostDate($post, $aAtts) ?></p>
-        <p><?php echo $postController->renderTrimmedContents($post, $aAtts) ?></p>
+        <p><?php echo $filterHook->renderPostDate($post, $aAtts) ?></p>
+        <p><?php echo $filterHook->renderTrimmedContents($post, $aAtts) ?></p>
         <?php
-    }
-
-    public function renderPostDate(object $post, array $aAtts)
-    {
-        $date = '';
-        $date =  date_i18n($aAtts['date_format'], strtotime(esc_attr($post->post_date)));
-        return $date;
-    }
-
-    public function renderTrimmedContents(object $post, array $aAgrs)
-    {
-        if ($aAgrs['wanted_strlen'] < 30) {
-            $wanted_strlen   =  30;
-        } else {
-            $wanted_strlen   =  $aAgrs['wanted_strlen'];
-        }
-        $myContent = '';
-        $post      = $aAgrs['post'];
-        $myContent = apply_filters('the_content', get_the_content(esc_attr($post->post_content)));
-        $myContent = wp_strip_all_tags($myContent);
-        if (strlen($myContent) > $wanted_strlen) {
-            $trimVal         = $wanted_strlen - strlen($myContent);
-            $myContent       = substr($myContent, 0, $trimVal);
-            $myContent      .= $aAgrs['end'];
-            return $myContent;
-        } else {
-            return $myContent;
-        }
     }
 
     public function renderPostItems(array $aAtts = [])
@@ -101,6 +77,4 @@ class PostController
         wp_reset_postdata();
         echo $html;
     }
-
-    
 }

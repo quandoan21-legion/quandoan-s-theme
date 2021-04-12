@@ -1,3 +1,4 @@
+<?php use Src\MainController as MainController; ?>
 <!-- HEADER SECTION -->
 <header id="home">
   <?php get_header() ?>
@@ -83,7 +84,7 @@
       <div class="row">
         <div class="col-12">
           <?php
-          mainController::quanRenderTitle([
+          MainController::quanRenderTitle([
             'title' => 'Checkout our portfolios',
           ]); 
           ?>
@@ -91,7 +92,7 @@
       </div>
       <div class="row">
         <?php
-        mainController::renderInfo([
+        MainController::renderInfo([
           'post_type'     => 'portfolios',
           'items_per_row' => '',
           'number_of_row' => '2',
@@ -118,7 +119,7 @@
       <div class="row">
         <div class="col-12">
           <?php
-          mainController::quanRenderTitle([
+          MainController::quanRenderTitle([
             'subtitle' => 'post',
             'title' => 'Checkout our Post',
           ]); 
@@ -127,7 +128,7 @@
       </div>
       <div id="blog-drag" class="row blog-slider">
         <?php
-        mainController::renderInfo([
+        MainController::renderInfo([
           'post_type'     => 'post',
           'date_format'   => 'M d, Y',
           'items_per_row' => '123123',

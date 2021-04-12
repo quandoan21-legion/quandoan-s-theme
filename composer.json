@@ -10,7 +10,9 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "Basic\\": "src/"
+      "Src\\": "src/",
+      "Portfolios\\": "src/Portfolios/",
+      "Posts\\": "src/Posts/"
     }
   },
   "require": {

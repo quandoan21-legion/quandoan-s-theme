@@ -1,7 +1,8 @@
 <?php
 
-class customPostType {
-    function hook_into_wordpress()
+namespace Src\Scripts;
+class CustomPostType {
+    function __construct()
     {
         add_action('init', [$this, 'portfolio_custom_posts']);
         add_action('init', [$this, 'quandoan_custom_posts']);
@@ -72,6 +73,4 @@ class customPostType {
     }
 
 }
-$postType = new customPostType;
-$postType->hook_into_wordpress();
 

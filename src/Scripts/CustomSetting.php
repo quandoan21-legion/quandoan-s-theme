@@ -1,7 +1,8 @@
 <?php
-class customSetting
+namespace Src\Scripts;
+class CustomSetting
 {
-    function hook_into_wordpress()
+    function __construct()
     {
         add_action('admin_init', [$this, 'register_settings']);
     }
@@ -13,5 +14,3 @@ class customSetting
         register_setting('my-settings-group', 'company_address');
     }
 }
-$customSetting = new customSetting;
-$customSetting->hook_into_wordpress();

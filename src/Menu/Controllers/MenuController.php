@@ -1,4 +1,5 @@
 <?php
+namespace ThemeSrc\Menu\Controllers;
 class MenuController {
     public function __construct()
     {

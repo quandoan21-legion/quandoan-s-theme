@@ -1,6 +1,8 @@
 <?php
-
-class mainController
+namespace Src;
+use Portfolios\Controllers\PortfolioController as PortfolioController; 
+use Posts\Controllers\PostController as PostController; 
+class MainController
 {
     public static function renderInfo(array $aAtts)
     {

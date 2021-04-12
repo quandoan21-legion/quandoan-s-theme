@@ -1,5 +1,5 @@
 <?php
-
+namespace Portfolios\Controllers;
 class PortfolioController
 {
 	public function __construct()
@@ -20,7 +20,6 @@ class PortfolioController
 
 			]
 		);
-		$neededVal = '';
 ?>
 		<div class="<?php echo esc_attr($aAtts['wrapper_classes']); ?>">
 			<div class="<?php echo esc_attr($aAtts['inner_classes']); ?>">
@@ -53,14 +52,7 @@ class PortfolioController
 			$aAtts
 		);
 
-		if ((is_numeric($aAtts['items_per_row']) == true &&
-				12 % $aAtts['items_per_row']) == 0 &&
-			$aAtts['items_per_row'] != 0
-		) {
-			$itemsPerRow = 12 / $aAtts['items_per_row'];
-		} else {
-			$itemsPerRow = 4;
-		}
+		$itemsPerRow = apply_filters('checkItemsPerRow', $aAtts['items_per_row']);
 
 
 		$classes = "col-12 col-lg-" . $itemsPerRow . " work-box1";
