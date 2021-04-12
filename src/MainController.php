@@ -14,12 +14,12 @@ class MainController
         );
         switch ($aAtts['post_type']) {
             case 'portfolios':
-                $html =  new PortfolioController;
-                $html->renderPortfolioItems($aAtts);
+                $oHtml =  new PortfolioController;
+                $oHtml->renderPortfolioItems($aAtts);
                 break;
             case 'post':
-                $html =  new PostController;
-                $html->renderPostItems($aAtts);
+                $oHtml =  new PostController;
+                $oHtml->renderPostItems($aAtts);
                 break;
         }
     }

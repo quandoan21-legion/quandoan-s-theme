@@ -8,14 +8,14 @@ class PortfolioController
 		add_shortcode('quan_render_portfolio_item', [$this, 'renderPortfolioItem']);
 	}
 
-	public function renderPortfolioItem(\WP_Post $post, array $aAtts = [])
+	public function renderPortfolioItem(\WP_Post $oPost, array $aAtts = [])
 	{
-		$portfolioController =  new PortfolioController;
-		$postID = $post->ID;
+		$oPortfolioController =  new PortfolioController;
+		$postID = $oPost->ID;
 		$aAtts = wp_parse_args(
 			$aAtts,
 			[
-				'post'            => $post,
+				'post'            => $oPost,
 				'post_id'         => $postID,
 
 			]
@@ -24,23 +24,23 @@ class PortfolioController
 		<div class="<?php echo esc_attr($aAtts['wrapper_classes']); ?>">
 			<div class="<?php echo esc_attr($aAtts['inner_classes']); ?>">
 				<!-- Replace Patch to Image Under -->
-				<img src="<?php echo $portfolioController->renderImgUrl($post) ?>" alt="<?php echo $post->post_title; ?>">
+				<img src="<?php echo $oPortfolioController->renderImgUrl($oPost) ?>" alt="<?php echo $oPost->post_title; ?>">
 				<!-- Replace Image Title Under -->
-				<span class="photobox__label"><?php echo $post->post_title; ?></span>
+				<span class="photobox__label"><?php echo $oPost->post_title; ?></span>
 			</div>
 		</div>
 		<?php
 	}
-	function renderImgUrl($post)
+	function renderImgUrl($oPost)
 	{
-		$postImgUrl  =  esc_url(get_the_post_thumbnail_url($post->ID));
+		$postImgUrl  =  esc_url(get_the_post_thumbnail_url($oPost->ID));
 		return $postImgUrl;
 	}
 
 	public function renderPortfolioItems(array $aAtts = [])
 	{
 
-		$portfolio = new PortfolioController;
+		$oPortfolio = new PortfolioController;
 		$aAtts = shortcode_atts(
 			[
 				'items_per_row' => 3,
@@ -57,7 +57,7 @@ class PortfolioController
 
 		$classes = "col-12 col-lg-" . $itemsPerRow . " work-box1";
 
-		$query = new \WP_Query([
+		$oQuery = new \WP_Query([
 			'post_type'      => 'portfolios',
 			'posts_per_page' => $itemsPerRow * $aAtts['number_of_row'],
 			'post_status'    => 'publish'
@@ -65,11 +65,11 @@ class PortfolioController
 		$html = '';
 		ob_start();
 
-		if ($query->have_posts()) {
-			while ($query->have_posts()) {
-				$query->the_post(); ?>
+		if ($oQuery->have_posts()) {
+			while ($oQuery->have_posts()) {
+				$oQuery->the_post(); ?>
 				<div class="<?php echo esc_attr($classes); ?>">
-					<?php $portfolio->renderPortfolioItem($query->post, $aAtts); ?>
+					<?php $oPortfolio->renderPortfolioItem($oQuery->post, $aAtts); ?>
 				</div> <?php
 					}
 				}

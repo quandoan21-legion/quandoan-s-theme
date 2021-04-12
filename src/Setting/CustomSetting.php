@@ -1,5 +1,5 @@
 <?php
-namespace Src\Scripts;
+namespace Src\Setting;
 class CustomSetting
 {
     function __construct()

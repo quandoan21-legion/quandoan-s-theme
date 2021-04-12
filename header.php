@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="LionCoders" />
     <!-- Links -->
+    
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <?php wp_head() ?>
     <!-- Document Title -->
@@ -14,6 +15,3 @@
 </head>
 
 <body>
-    <div class="container">
-        
-    </div>

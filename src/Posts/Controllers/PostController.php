@@ -12,22 +12,22 @@ class PostController
         add_shortcode('quan_render_post_item', [$this, 'renderPostItem']);
     }
 
-    public function renderPostItem(\WP_Post $post, array $aAtts)
+    public function renderPostItem(\WP_Post $oPost, array $aAtts)
     {
-        $filterHook = new CustomFilterHooks;
+        $oFilterHook = new CustomFilterHooks;
         $aAtts = wp_parse_args($aAtts, [
-            'post' => $post,
+            'post' => $oPost,
         ]);
 ?>
-        <h6><?php echo $post->post_title ?></h6>
-        <p><?php echo $filterHook->renderPostDate($post, $aAtts) ?></p>
-        <p><?php echo $filterHook->renderTrimmedContents($post, $aAtts) ?></p>
+        <h6><?php echo $oPost->post_title ?></h6>
+        <p><?php echo $oFilterHook->renderPostDate($oPost, $aAtts) ?></p>
+        <p><?php echo $oFilterHook->renderTrimmedContents($oPost, $aAtts) ?></p>
         <?php
     }
 
     public function renderPostItems(array $aAtts = [])
     {
-        $post = new PostController;
+        $oPost = new PostController;
         $aAtts = shortcode_atts(
             [
                 'post_type'     => 'post',
@@ -45,15 +45,16 @@ class PostController
         $itemsPerRow = apply_filters('checkItemsPerRow', $aAtts['items_per_row']);
 
         switch ($aAtts['type_of_post']) {
-            case '':
-                $classes = "col-12 col-lg-" . $itemsPerRow . " blog-box";
-                break;
-
             case 'important':
                 $classes = "col-12 col-lg-" . $itemsPerRow . " blog-box blog-first";
                 break;
+
+            default:
+                $classes = "col-12 col-lg-" . $itemsPerRow . " blog-box";
+                break;
         }
-        $query = new \WP_Query([
+        
+        $oQuery = new \WP_Query([
             'post_type'      => 'post',
             'posts_per_page' => $itemsPerRow * $aAtts['number_of_row'],
             'post_status'    => 'publish'
@@ -61,12 +62,12 @@ class PostController
         $html = '';
         ob_start();
 
-        if ($query->have_posts()) {
-            while ($query->have_posts()) {
-                $query->the_post();
+        if ($oQuery->have_posts()) {
+            while ($oQuery->have_posts()) {
+                $oQuery->the_post();
         ?>
                 <div class="<?php echo esc_attr($classes); ?>">
-                    <?php $post->renderPostItem($query->post, $aAtts); ?>
+                    <?php $oPost->renderPostItem($oQuery->post, $aAtts); ?>
                 </div>
 <?php
             }

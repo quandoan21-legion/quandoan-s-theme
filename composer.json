@@ -19,6 +19,6 @@
     "phpunit/phpunit": "^7.2",
     "wilokecom/phpcli": "^1.22",
     "vimeo/psalm": "^4.6",
-    "phpro/grumphp": "dev-master"
+    "phpro/grumphp": "^1.3.1"
   }
 }

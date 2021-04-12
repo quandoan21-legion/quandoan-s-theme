@@ -1,7 +1,23 @@
-<?php use Src\MainController as MainController; ?>
+<?php
+global $aRedux_vars;
+
+use Src\MainController as MainController; ?>
 <!-- HEADER SECTION -->
 <header id="home">
   <?php get_header() ?>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <a class="logo-header">
+        <img class="logo-header" src="<?php echo $aRedux_vars['logo-img']['url']; ?>" alt="">
+      </a>
+      <?php wp_nav_menu(array(
+        'theme_location'  => 'main-nav', // tên location cần hiển thị
+        'container'       => 'div', // thẻ container của menu
+        'container_class' => 'collapse navbar-collapse', //class của container
+        'menu_class'      => 'navbar-nav mr-auto' // class của menu bên trong
+      )); ?>
+    </nav>
+  </div>
   <!-- HERO SECTION -->
   <div class="container-fluid hero">
     <img src="images/hero.svg" alt="">
@@ -86,7 +102,7 @@
           <?php
           MainController::quanRenderTitle([
             'title' => 'Checkout our portfolios',
-          ]); 
+          ]);
           ?>
         </div>
       </div>
@@ -122,7 +138,7 @@
           MainController::quanRenderTitle([
             'subtitle' => 'post',
             'title' => 'Checkout our Post',
-          ]); 
+          ]);
           ?>
         </div>
       </div>
@@ -131,12 +147,11 @@
         MainController::renderInfo([
           'post_type'     => 'post',
           'date_format'   => 'M d, Y',
-          'items_per_row' => '123123',
+          'items_per_row' => '3',
           'number_of_row' => '4',
+          'wanted_strlen' => '99',
           'type_of_post'  => '',
-          'wanted_strlen' => '2',
-          'type_of_post'  => '',
-          'end'           => '....',
+          'end'           => '.....',
         ]);
         ?>
         <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->

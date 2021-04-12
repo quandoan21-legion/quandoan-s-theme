@@ -16,18 +16,18 @@ class ThemeEnqueue
         // css
         wp_register_style('qd_googlefont', ASSETS . 'https://fonts.googleapis.com/css?family=Work+Sans:400,600&display=swap');
         wp_register_style('qd_bootstrap', ASSETS .  '/assets/css/bootstrap.min.css');
-        wp_register_style('qd_icofont', ASSETS .  '/icofont.min.css');
         wp_register_style('qd_slick', ASSETS .  '/assets/css/slick.css');
         wp_register_style('qd_main', ASSETS .  '/assets/css/main.css');
         wp_register_style('qd_custom', ASSETS .  '/assets/css/custom.css');
+        wp_register_style('qd_icofont', ASSETS .  '/assets/css/icofont.min.css');
         //enqueue
         wp_enqueue_style('qd_googlefont');
         wp_enqueue_style('qd_bootstrap');
-        wp_enqueue_style('qd_icofont');
         wp_enqueue_style('qd_slick');
         wp_enqueue_style('qd_main');
         wp_enqueue_style('qd_custom');
-
+        wp_enqueue_style('qd_icofont');;
+        
         // JS
 
         wp_register_script('qd_bootstrap',ASSETS .  '/assets/js/bootstrap.min.js', array('jquery-core'), $ver, 'in_footer');
