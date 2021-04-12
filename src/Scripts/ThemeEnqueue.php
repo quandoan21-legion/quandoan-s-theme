@@ -26,7 +26,7 @@ class ThemeEnqueue
         wp_enqueue_style('qd_slick');
         wp_enqueue_style('qd_main');
         wp_enqueue_style('qd_custom');
-        wp_enqueue_style('qd_icofont');;
+        wp_enqueue_style('qd_icofont');
         
         // JS
 

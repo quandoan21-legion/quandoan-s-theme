@@ -205,6 +205,31 @@ $args['footer_icons'][] = array(
 	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
 	'icon'  => 'icofont-youtube',
 );
+$args['footer_icons'][] = array(
+	'url'   => 'https://www.youtube.com/',
+	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
+	'icon'  => 'icofont-youtube',
+);
+$args['footer_icons'][] = array(
+	'url'   => 'https://www.youtube.com/',
+	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
+	'icon'  => 'icofont-youtube',
+);
+$args['footer_icons'][] = array(
+	'url'   => 'https://www.youtube.com/',
+	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
+	'icon'  => 'icofont-youtube',
+);
+$args['footer_icons'][] = array(
+	'url'   => 'https://www.youtube.com/',
+	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
+	'icon'  => 'icofont-youtube',
+);
+$args['footer_icons'][] = array(
+	'url'   => 'https://www.youtube.com/',
+	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
+	'icon'  => 'icofont-youtube',
+);
 
 // Panel Intro text -> before the form.
 if (!isset($args['global_variable']) || false !== $args['global_variable']) {
