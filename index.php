@@ -1,40 +1,9 @@
 <?php
-global $aRedux_vars;
 
+global $aRedux_vars;
 use Src\MainController as MainController; ?>
-<!-- HEADER SECTION -->
-<header id="home">
-  <?php get_header() ?>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light ">
-      <a class="logo-header">
-        <img class="logo-header" src="<?php echo $aRedux_vars['logo-img']['url']; ?>" alt="">
-      </a>
-      <?php wp_nav_menu(array(
-        'theme_location'  => 'main-nav', // tên location cần hiển thị
-        'container'       => 'div', // thẻ container của menu
-        'container_class' => 'collapse navbar-collapse', //class của container
-        'menu_class'      => 'navbar-nav mr-auto' // class của menu bên trong
-      )); ?>
-    </nav>
-  </div>
-  <!-- HERO SECTION -->
-  <div class="container-fluid hero">
-    <img src="images/hero.svg" alt="">
-    <div class="container">
-      <!-- Hero Title -->
-      <h1>The Spirit of<br>Digital Agency.</h1>
-      <!-- Hero Title Info -->
-      <p>Vestibulum ac diam sit amet quam vehicula elementum<br> amet est on dui. Nulla porttitor accumsan tincidunt.</p>
-      <div class="hero-btns">
-        <!-- Hero Btn First -->
-        <a data-scroll href="#about-us">More About us</a>
-        <!-- Hero Btn Second -->
-        <a data-scroll href="#contact-us">Get in Touch.</a>
-      </div>
-    </div>
-  </div>
-</header>
+
+<?php get_header() ?>
 <!-- SERVICES SECTION -->
 <section id="about-us" class="services">
   <div class="container-fluid">
