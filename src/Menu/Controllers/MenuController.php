@@ -1,19 +1,25 @@
 <?php
+
 namespace ThemeSrc\Menu\Controllers;
-class MenuController {
+
+class MenuController
+{
     public function __construct()
     {
         add_theme_support('menus');
         add_action('init', [$this, 'registerMenu']);
     }
 
-    public function registerMenu() {
-        register_nav_menus(
-            array(
-                'main-nav '  => 'Menu chính',
-                'footer-nav' => 'Menu footer',
-                'header-nav' => 'Menu header',
-            )
+    public function registerMenu()
+    {
+        $aNav = array(
+            'main-nav '  => 'Menu chính',
         );
+        foreach ($aNav as $value) {
+            $key = array_search($value, $aNav);
+            if (has_nav_menu($key) == false) {
+                register_nav_menus( $key, $value);
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Posts;
 
-class RegisterPost
+class RegisterPosts
 {
     function __construct()
     {

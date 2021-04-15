@@ -77,11 +77,7 @@ use Src\MainController as MainController; ?>
       </div>
       <div class="row">
         <?php
-        MainController::renderInfo([
-          'post_type'     => 'portfolios',
-          'items_per_row' => '',
-          'number_of_row' => '2',
-        ]);
+        do_shortcode('[quan_render_portfolio_items items_per_row="2" post_title="123"]')
         ?>
       </div>
 
@@ -113,15 +109,7 @@ use Src\MainController as MainController; ?>
       </div>
       <div id="blog-drag" class="row blog-slider">
         <?php
-        MainController::renderInfo([
-          'post_type'     => 'post',
-          'date_format'   => 'M d, Y',
-          'items_per_row' => '3',
-          'number_of_row' => '4',
-          'wanted_strlen' => '99',
-          'type_of_post'  => '',
-          'end'           => '.....',
-        ]);
+        do_shortcode('[quan_render_post_items number_of_row="3"]')
         ?>
         <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->
         <button class="hide-me" id="blog-btn">Show More Stories</button>

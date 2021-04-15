@@ -6,40 +6,48 @@ use Src\Scripts\CustomFilterHooks;
 
 class PostController
 {
+    protected static $oPost;
     public function __construct()
     {
         add_shortcode('quan_render_post_items', [$this, 'renderPostItems']);
         add_shortcode('quan_render_post_item', [$this, 'renderPostItem']);
     }
 
-    public function renderPostItem(\WP_Post $oPost, array $aAtts)
+    public function renderPostItem(array $aAtts)
     {
         $oFilterHook = new CustomFilterHooks;
-        $aAtts = wp_parse_args($aAtts, [
-            'post' => $oPost,
-        ]);
+        $aAtts = shortcode_atts(
+            [
+                'wanted_strlen' => '',
+                'end'           => '',
+                'date_format'   => '',   
+                'post_title'    => self::$oPost->post_title,
+                'post_date'     => self::$oPost->post_date,
+                'post_content'  => self::$oPost->post_content,
+            ],
+            $aAtts,
+        );
 ?>
-        <h6><?php echo $oPost->post_title ?></h6>
-        <p><?php echo $oFilterHook->renderPostDate($oPost, $aAtts) ?></p>
-        <p><?php echo $oFilterHook->renderTrimmedContents($oPost, $aAtts) ?></p>
+        <h6><?php echo $aAtts['post_title'] ?></h6>
+        <p><?php echo $oFilterHook->renderPostDate($aAtts['date_format'], $aAtts['post_date']) ?></p>
+        <p><?php echo $oFilterHook->renderTrimmedContents($aAtts['post_content'], $aAtts) ?></p>
         <?php
     }
 
-    public function renderPostItems(array $aAtts = [])
+    public function renderPostItems($aAtts)
     {
-        $oPost = new PostController;
-        $aAtts = shortcode_atts(
+        $aAtts = wp_parse_args(
+            $aAtts,
             [
                 'post_type'     => 'post',
-                'items_per_row' => 3,
-                'number_of_row' => 4,
-                'date_format'   => 'M d, Y',
-                'inner_classes' => 'photobox__previewbox',
                 'wanted_strlen' => '60',
                 'end'           => '...',
+                'date_format'   => 'M d, Y',
+                'items_per_row' => 3,
+                'number_of_row' => 1,
+                'inner_classes' => 'photobox__previewbox',
                 'type_of_post'  => ''
             ],
-            $aAtts
         );
 
         $itemsPerRow = apply_filters('checkItemsPerRow', $aAtts['items_per_row']);
@@ -53,7 +61,7 @@ class PostController
                 $classes = "col-12 col-lg-" . $itemsPerRow . " blog-box";
                 break;
         }
-        
+
         $oQuery = new \WP_Query([
             'post_type'      => 'post',
             'posts_per_page' => $itemsPerRow * $aAtts['number_of_row'],
@@ -62,20 +70,16 @@ class PostController
         $html = '';
         ob_start();
 
-        if ($oQuery->have_posts()) {
-            while ($oQuery->have_posts()) {
-                $oQuery->the_post();
-        ?>
-                <div class="<?php echo esc_attr($classes); ?>">
-                    <?php $oPost->renderPostItem($oQuery->post, $aAtts); ?>
-                </div>
-<?php
-            }
-        }
+        foreach ($oQuery->posts as $value) {
+            self::$oPost = $value; ?>
+            <div class="<?php echo esc_attr($classes); ?>">
+                <?php $this->renderPostItem($aAtts); ?>
+            </div>
+<?php }
 
         $html = ob_get_contents();
         ob_end_clean();
-        wp_reset_postdata();
         echo $html;
     }
 }
+wp_reset_postdata();
