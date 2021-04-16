@@ -16,7 +16,11 @@ define('ASSETS', get_theme_file_uri());
 require_once(LIBRARY ."/vendor/autoload.php");
 require_once("core/init.php");
 add_filter('widget_text', 'do_shortcode');
-add_theme_support('post-thumbnails');
+
+// add_action('widgets_init', 'initiation');
+// function initiation(){
+    add_theme_support('post-thumbnails');
+// }
 
 // HOOK ACTION - FILTER
 

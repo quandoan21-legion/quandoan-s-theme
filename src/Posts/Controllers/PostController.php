@@ -6,7 +6,6 @@ use Src\Scripts\CustomFilterHooks;
 
 class PostController
 {
-    protected static $oPost;
     public function __construct()
     {
         add_shortcode('quan_render_post_items', [$this, 'renderPostItems']);
@@ -20,10 +19,10 @@ class PostController
             [
                 'wanted_strlen' => '',
                 'end'           => '',
-                'date_format'   => '',   
-                'post_title'    => self::$oPost->post_title,
-                'post_date'     => self::$oPost->post_date,
-                'post_content'  => self::$oPost->post_content,
+                'date_format'   => '',
+                'post_title'    => get_the_title(),
+                'post_date'     => get_the_date(),
+                'post_content'  => get_the_content(),
             ],
             $aAtts,
         );
@@ -67,19 +66,21 @@ class PostController
             'posts_per_page' => $itemsPerRow * $aAtts['number_of_row'],
             'post_status'    => 'publish'
         ]);
-        $html = '';
+
         ob_start();
 
-        foreach ($oQuery->posts as $value) {
-            self::$oPost = $value; ?>
-            <div class="<?php echo esc_attr($classes); ?>">
-                <?php $this->renderPostItem($aAtts); ?>
-            </div>
-<?php }
+        if ($oQuery->have_posts()) {
+            while ($oQuery->have_posts()) {
+                $oQuery->the_post(); ?> 
+                <div class="<?php echo esc_attr($classes); ?>">
+                    <?php $this->renderPostItem($aAtts); ?>
+                </div>
+        <?php }
+        }
 
         $html = ob_get_contents();
         ob_end_clean();
         echo $html;
+        wp_reset_postdata();
     }
 }
-wp_reset_postdata();
