@@ -78,13 +78,7 @@ use Src\Shared\Controllers\SharedController as SharedController;?>
       </div>
       <div class="row">
         <?php
-        (new SharedController())
-        ->setArgs([
-          'post_type'     => 'Portfolios', 
-          'image_size'    => 'medium',
-          ])
-        ->renderContainerClass('RenderPortfolios')
-        ->output('RenderPortfolios');
+        do_shortcode('[sharedShortcode post_type="portfolios" container_class="RenderPortfolios" output_class="RenderPortfolios"]');
         ?>
       </div>
 
@@ -116,14 +110,7 @@ use Src\Shared\Controllers\SharedController as SharedController;?>
       </div>
       <div id="blog-drag" class="row blog-slider">
         <?php
-        (new SharedController())
-        ->setArgs([
-          'post_type'     => 'post',
-          'wanted_strlen' => '45',
- 
-          ])
-        ->renderContainerClass('RenderPosts')
-        ->output('RenderPosts');
+        do_shortcode('[sharedShortcode post_type="post"]');
         ?>
         <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->
         <button class="hide-me" id="blog-btn">Show More Stories</button>

@@ -72,7 +72,7 @@ class PostController
         if ($oQuery->have_posts()) {
             while ($oQuery->have_posts()) {
                 $oQuery->the_post(); ?> 
-                <div class="<?php echo esc_attr($this->classes); ?>">
+                <div class="<?php echo esc_attr($classes); ?>">
                     <?php $this->renderPostItem($aAtts); ?>
                 </div>
         <?php }
