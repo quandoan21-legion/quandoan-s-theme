@@ -110,7 +110,7 @@ use Src\Shared\Controllers\SharedController as SharedController;?>
       </div>
       <div id="blog-drag" class="row blog-slider">
         <?php
-        do_shortcode('[sharedShortcode post_type="post"]');
+        do_shortcode('[sharedShortcode post_type="post" type_of_post="important"]');
         ?>
         <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->
         <button class="hide-me" id="blog-btn">Show More Stories</button>

@@ -3,13 +3,13 @@
 namespace Src\Shared\Controllers;
 interface IRenderItems
 {
-    public function renderContainerClass(string $itemsPerRow);
+    public function renderContainerClass(string $itemsPerRow, string $typeOfPost);
     public function renderHtml(object $oThis);
 }
 
 class RenderPortfolios implements IRenderItems
 {
-    public function renderContainerClass(string $itemsPerRow)
+    public function renderContainerClass(string $itemsPerRow, string $typeOfPost)
     {
         $this->classes = "col-12 col-lg-" . $itemsPerRow . " work-box1";
         return $this;
@@ -32,9 +32,9 @@ class RenderPortfolios implements IRenderItems
 
 class RenderPosts implements IRenderItems
 {
-    public function renderContainerClass(string $itemsPerRow)
+    public function renderContainerClass(string $itemsPerRow, string $typeOfPost)
     {
-        switch ($this->aAtts['type_of_post']) {
+        switch ($typeOfPost) {
             case 'important':
                 $this->classes = "col-12 col-lg-" . $itemsPerRow . " blog-box blog-first";
                 break;
@@ -64,7 +64,7 @@ class SharedController
     {
         add_shortcode('sharedShortcode', [$this, 'sharedShortcode']);
     }
-    public function sharedShortcode($aArgs)
+    public function sharedShortcode(array $aArgs = [])
     {
         $aArgs =
             wp_parse_args(
@@ -100,7 +100,7 @@ class SharedController
                     'image_size'      => 'medium',
                 ],
             );
-            // var_dump($this->aArgs);die;
+            // var_export($this->aArgs['type_of_post']);die;
         return $this;
     }
 
@@ -118,7 +118,7 @@ class SharedController
 
         $wantedClass = __NAMESPACE__ . '\\' . $wantedClass;
         $oWantedClass = new $wantedClass;
-        $this->containerClass = $oWantedClass->renderContainerClass($this->itemsPerRow);
+        $this->containerClass = $oWantedClass->renderContainerClass($this->itemsPerRow, $this->aArgs['type_of_post']);
         return $this;
     }
 
