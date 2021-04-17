@@ -16,6 +16,10 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
             'Posts\\' => 6,
             'Portfolios\\' => 11,
         ),
+        'F' => 
+        array (
+            'Function\\' => 9,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -30,6 +34,10 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
         'Portfolios\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Portfolios',
+        ),
+        'Function\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/functions.php',
         ),
     );
 

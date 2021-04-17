@@ -1,7 +1,8 @@
 <?php
-
+session_start();
 global $aRedux_vars;
-use Src\MainController as MainController; ?>
+use Src\MainController as MainController;
+use Src\Shared\Controllers\SharedController as SharedController;?>
 
 <?php get_header() ?>
 <!-- SERVICES SECTION -->
@@ -77,7 +78,13 @@ use Src\MainController as MainController; ?>
       </div>
       <div class="row">
         <?php
-        do_shortcode('[quan_render_portfolio_items items_per_row="2" post_title="123"]')
+        (new SharedController())
+        ->setArgs([
+          'post_type'     => 'Portfolios', 
+          'image_size'    => 'medium',
+          ])
+        ->renderContainerClass('RenderPortfolios')
+        ->output('RenderPortfolios');
         ?>
       </div>
 
@@ -109,7 +116,14 @@ use Src\MainController as MainController; ?>
       </div>
       <div id="blog-drag" class="row blog-slider">
         <?php
-        do_shortcode('[quan_render_post_items number_of_row="3"]')
+        (new SharedController())
+        ->setArgs([
+          'post_type'     => 'post',
+          'wanted_strlen' => '45',
+ 
+          ])
+        ->renderContainerClass('RenderPosts')
+        ->output('RenderPosts');
         ?>
         <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->
         <button class="hide-me" id="blog-btn">Show More Stories</button>

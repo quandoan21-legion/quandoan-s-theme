@@ -8,10 +8,10 @@ class CustomFilterHooks
     {
         add_filter('renderPostDate', [$this, 'renderPostDate'], 10, 2);
         add_filter('checkItemsPerRow', [$this, 'checkItemsPerRow'], 10, 1);
-        add_filter('renderTrimmedContents', [$this, 'renderTrimmedContents'], 10, 2);
+        add_filter('renderTrimmedContents', [$this, 'renderTrimmedContents'], 10, 3);
     }
 
-    function renderPostDate(string $dateFormat, string $postDate)
+    function renderPostDate(string $postDate, string $dateFormat)
     {
         $date = '';
         $date =  date_i18n($dateFormat, strtotime(esc_attr($postDate)));
@@ -33,12 +33,12 @@ class CustomFilterHooks
         return $itemsPerRow;
     }
 
-    public function renderTrimmedContents(string $post_content, array $aAgrs)
+    public function renderTrimmedContents(string $post_content, string $wantedStrlen, string $end)
     {
-        if ($aAgrs['wanted_strlen'] < 30 || $aAgrs['wanted_strlen'] > 100) {
+        if ($wantedStrlen < 30 || $wantedStrlen > 100) {
             $wanted_strlen   =  30;
         } else {
-            $wanted_strlen   =  $aAgrs['wanted_strlen'];
+            $wanted_strlen   =  $wantedStrlen;
         }
         $myContent = '';
         $myContent = $post_content;
@@ -46,7 +46,7 @@ class CustomFilterHooks
         if (strlen($myContent) > $wanted_strlen) {
             $trimVal         = $wanted_strlen - strlen($myContent);
             $myContent       = substr($myContent, 0, $trimVal);
-            $myContent      .= $aAgrs['end'];
+            $myContent      .= $end;
             return $myContent;
         } else {
             return $myContent;

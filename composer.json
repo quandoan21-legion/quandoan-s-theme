@@ -12,7 +12,8 @@
     "psr-4": {
       "Src\\": "src/",
       "Portfolios\\": "src/Portfolios/",
-      "Posts\\": "src/Posts/"
+      "Posts\\": "src/Posts/",
+      "Function\\": "functions.php"
     }
   },
   "require": {

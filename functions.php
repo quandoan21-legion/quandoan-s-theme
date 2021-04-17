@@ -1,11 +1,15 @@
 <?php
+
 namespace Theme;
+
+session_start();
 use Src\Scripts\ThemeEnqueue as ThemeEnqueue;
 use Src\Scripts\CustomFilterHooks as CustomFilterHooks;
 use Src\Scripts\CustomActionHooks as CustomActionHooks;
-use Posts\Controllers\PostController as PostController;
-use Portfolios\Controllers\PortfolioController as PortfolioController;
+// use Posts\Controllers\PostController as PostController;
+// use Portfolios\Controllers\PortfolioController as PortfolioController;
 use Src\MainController as MainController;
+use Src\Shared\Controllers\SharedController as SharedController;
 use Portfolios\RegisterPortfolio as RegisterPortfolio;
 use Posts\RegisterPosts as RegisterPosts;
 use Src\Setting\CustomSetting as CustomSetting;
@@ -13,13 +17,13 @@ use Src\Setting\CustomSetting as CustomSetting;
 define('LIBRARY', get_theme_file_path());
 define('ASSETS', get_theme_file_uri());
 // INCLUDES
-require_once(LIBRARY ."/vendor/autoload.php");
+require_once(LIBRARY . "/vendor/autoload.php");
 require_once("core/init.php");
 add_filter('widget_text', 'do_shortcode');
 
 // add_action('widgets_init', 'initiation');
 // function initiation(){
-    add_theme_support('post-thumbnails');
+add_theme_support('post-thumbnails');
 // }
 
 // HOOK ACTION - FILTER
@@ -31,10 +35,15 @@ add_filter('widget_text', 'do_shortcode');
 new ThemeEnqueue();
 new CustomFilterHooks();
 new CustomActionHooks();
-new PostController();
-new PortfolioController();
+// new PostController();
+// new PortfolioController();
 new MainController();
+new SharedController();
 new RegisterPortfolio();
 new RegisterPosts();
 new CustomSetting();
+
+
+
+
 
