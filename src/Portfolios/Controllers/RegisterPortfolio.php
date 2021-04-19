@@ -13,19 +13,18 @@ class RegisterPortfolio
     public function custom_portfolios()
     {
         $aLabels = [
-            'name' => 'Portfolio',
+            'name'          => 'Portfolio',
             'singular_name' => 'Portfolio',
         ];
         $aArgs   = [
-            'labels' => $aLabels,
-            'desscription' => 'just a custom fortfolio post type',
-            'public' => true,
-            'has_archive' => true,
+            'labels'             => $aLabels,
+            'description'        => 'just a custom Portfolios post type',
+            'public'             => true,
+            'has_archive'        => true,
             'publicly_queryable' => true,
-            'has_archive' => true,
-            'menu_icon' => 'dashicons-media-document ',
-            'supports' => ['title', 'editor', 'thumbnail'],
-            'rewrite' => ['slug' => 'Portfolios'],
+            'menu_icon'          => 'dashicons-media-document ',
+            'supports'           => ['title', 'editor', 'thumbnail'],
+            'rewrite'            => ['slug' => 'Portfolios'],
 
         ];
 
@@ -35,13 +34,13 @@ class RegisterPortfolio
     public function portfolio_taxonomy()
     {
         $aLabels = [
-            'name' => 'Portfolio taxonomies',
+            'name'          => 'Portfolio taxonomies',
             'singular_name' => 'Portfolio taxonomy',
         ];
 
         $aArgs = [
-            'labels' => $aLabels,
-            'public' => true,
+            'labels'       => $aLabels,
+            'public'       => true,
             'hierarchical' => true,
         ];
         register_taxonomy('portfolios', ['portfolios'], $aArgs);

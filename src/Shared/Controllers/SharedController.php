@@ -4,6 +4,7 @@ namespace Src\Shared\Controllers;
 
 use Portfolios\Controllers\PortfolioController as PortfolioController;
 use Posts\Controllers\PostController as PostController;
+use Src\Shared\Controllers\GridLayout as GridLayout;
 
 class SharedController
 {
@@ -22,15 +23,15 @@ class SharedController
             wp_parse_args(
                 $aArgs,
                 [
-                    'post_type'       => 'post',
-                    'container_class' => 'PostGrid',
-                    'output_class'    => 'RenderPosts',
+                    'post_type'         => 'post',
+                    'container_classes' => 'PostGrid',
+                    'output_layout'     => 'RenderPosts',
                 ],
             );
         (new SharedController())
             ->setArgs($aArgs)
             ->renderContainerTagClass($aArgs['container_class'])
-            ->output($aArgs['output_class']);
+            ->output($aArgs['output_layout'], $aArgs['type_of_post']);
     }
 
     public function setArgs(array $aArgs)
@@ -56,24 +57,6 @@ class SharedController
         return $this;
     }
 
-    public function outputLayout($output)
-    {
-        switch ($output) {
-            case 'RenderPortfolios':
-                $controller = new PortfolioController;
-                return $controller;
-                break;
-
-            case 'RenderPosts':
-                $controller = new PostController;
-                return $controller;
-                break;
-
-            default:
-                # code...
-                break;
-        }
-    }
     public function renderContainerTagClass()
     {
         if (
@@ -85,56 +68,25 @@ class SharedController
         } else {
             $itemsPerRow = 4;
         }
-        $typeOfPost = $this->aArgs['container_class'];
-        switch ($this->aArgs['container_class']) {
-            case 'PostGrid':
-                switch ($typeOfPost) {
-                    case 'important':
-                        $this->containerClasses = "col-12 col-lg-" . $itemsPerRow . " blog-box blog-first";
-                        break;
-
-                    default:
-                        $this->containerClasses = "col-12 col-lg-" . $itemsPerRow . " blog-box";
-                        break;
-                }
-                return $this;
-                break;
-
-            case 'PortfolioGrid':
-                $this->containerClasses = "col-12 col-lg-" . $itemsPerRow . " work-box1";
-                return $this;
-                break;
-
-            default:
-                $this->containerClasses = "col-12 col-lg-" . $itemsPerRow . " blog-box";
-                break;
-        }
-
-        return $this;
+        return $itemsPerRow;
     }
 
-    public function output()
+    public function output($aArgs, $oOutput, $aAtts = [])
     {
-        $this->oQuery = new \WP_Query([
-            'post_type'      => $this->aArgs['post_type'],
-            'posts_per_page' => $this->itemsPerRow * $this->aArgs['number_of_row'],
-            'post_status'    => $this->aArgs['post_status']
-        ]);
-        $aNeededVal = [
-            'wrapper_classes' => $this->aArgs['wrapper_classes'],
-            'inner_classes'   => $this->aArgs['inner_classes'],
-            'default_img'     => $this->aArgs['default_img'],
-            'image_size'      => $this->aArgs['image_size'],
+        $this->oQuery = new \WP_Query($aArgs);
 
-        ];
+        var_dump($this->oQuery);die;
+        $aAtts = wp_parse_args(
+            $aAtts,
+            $this->aAtts
+        );
 
-        $controller = $this->outputLayout($this->aArgs['output_class']);
         ob_start();
         if ($this->oQuery->have_posts()) :
             while ($this->oQuery->have_posts()) :
                 $this->oQuery->the_post(); ?>
-                <div class="<?php echo esc_attr($this->containerClasses); ?>">
-                    <?php $controller->renderHtml(get_post(), $aNeededVal) ?>
+                <div class="<?php echo esc_attr($oOutput); ?>">
+                    <?php $oOutput->renderHtml($this->oQuery->post, $aAtts) ?>
                 </div>
 <?php
             endwhile;

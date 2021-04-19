@@ -2,7 +2,8 @@
 session_start();
 global $aRedux_vars;
 use Src\MainController as MainController;
-use Src\Shared\Controllers\SharedController as SharedController;?>
+use Src\Shared\Controllers\SharedController as SharedController;
+use Portfolios\Controllers\PortfolioController as PortfolioController;?>
 
 <?php get_header() ?>
 <!-- SERVICES SECTION -->
@@ -78,7 +79,9 @@ use Src\Shared\Controllers\SharedController as SharedController;?>
       </div>
       <div class="row">
         <?php
-        do_shortcode('[sharedShortcode post_type="portfolios" container_class="PortfolioGrid" output_class="RenderPortfolios"]');
+        // $protfolio = new PortfolioController;
+        // $protfolio->renderContainerTagClasses();
+        do_shortcode('[sharedShortcode layout="91"]');
         ?>
       </div>
 

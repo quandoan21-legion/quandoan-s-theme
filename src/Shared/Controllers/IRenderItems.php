@@ -4,5 +4,7 @@ namespace Src\Shared\Controllers;
 
 interface IRenderItems
 {
-    public function renderHtml(object $oThis, array $aNeededVal);
+    public function __construct();
+    public function renderContainerTagClasses(array $aAtts=[]);
+    public function renderHtml(\WP_Post $post, $aAtts);
 }
