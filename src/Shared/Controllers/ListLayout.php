@@ -5,10 +5,8 @@ use Src\Shared\Controllers\SharedController as SharedController;
 class ListLayout implements Layout
 {
     public function renderContainerClass(string $itemsPerRow, string $typeOfPost)
+    : string
     {
-        $itemsPerRow = new SharedController;
-        $itemsPerRow->renderContainerTagClass();
-        echo $itemsPerRow;die;
         switch ($typeOfPost) {
             case 'important':
                 $containerClasses = "col-12 col-lg-" . $itemsPerRow . " blog-box blog-first";
