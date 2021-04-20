@@ -4,10 +4,8 @@ namespace Posts\Controllers;
 
 use Src\Shared\Controllers\IRenderItems;
 use Src\Shared\Controllers\SharedController as SharedController;
-use Portfolios\Controllers\PortfolioController as PortfolioController;
 use Src\Shared\Controllers\GridLayout as GridLayout;
 use Src\Shared\Controllers\ListLayout as ListLayout;
-use WP_Post;
 
 class PostController implements IRenderItems
 {
