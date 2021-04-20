@@ -6,11 +6,11 @@ class RegisterPortfolio
 {
     public function __construct()
     {
-        add_action('init', [$this, 'custom_portfolios']);
-        add_action('init', [$this, 'portfolio_taxonomy']);
+        add_action('init', [$this, 'customPortfolio']);
+        add_action('init', [$this, 'portfolioTaxonomy']);
     }
 
-    public function custom_portfolios()
+    public function customPortfolio()
     {
         $aLabels = [
             'name'          => 'Portfolio',
@@ -31,7 +31,7 @@ class RegisterPortfolio
         register_post_type('portfolios', $aArgs);
     }
 
-    public function portfolio_taxonomy()
+    public function portfolioTaxonomy()
     {
         $aLabels = [
             'name'          => 'Portfolio taxonomies',

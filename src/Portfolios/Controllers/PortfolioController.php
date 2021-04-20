@@ -19,12 +19,15 @@ class PortfolioController implements IRenderItems
     public function renderContainerTagClasses(array $aAtts = [])
     {
 
-        $aAtts        =
+        $aAtts =
             shortcode_atts(
                 [
-                    'layout'          => 'list',
+                    'layout'          => 'grid',
                     'display'         => 'portfolio',
                     'image_size'      => 'medium',
+                    'date_format'     => 'M d,Y',
+                    'wanted_strlen'   => '60',
+                    'end'             => '...',
                     'wrapper_classes' => 'photobox photobox_type10',
                     'inner_classes'   => 'photobox__previewbox',
                     'items_per_row'   => '3',
@@ -34,41 +37,28 @@ class PortfolioController implements IRenderItems
                 ],
                 $aAtts,
             );
-        if ($aAtts['display'] == 'portfolio') {
-            $oDisplay = new PortfolioController();
-        } else {
-            $oDisplay = new PostController();
+
+        switch ($aAtts['layout']) {
+            case 'grid':
+                $oDisplay = new GridLayout();
+                break;
+
+            case 'list':
+                $oDisplay = new ListLayout();
+                break;
         }
 
         $oItemsPerRow = new SharedController();
         $itemsPerRow  = $oItemsPerRow->renderItemsPerRow($aAtts);
-        if ($aAtts['layout'] == 'grid') {
-            $oOutput = new GridLayout();
-        } else {
-            $oOutput = new ListLayout();
-        }
-        $aAtts['layout'] = $oOutput->renderContainerClass($itemsPerRow, $aAtts['type_of_post']);
+
+        $aAtts['container_class'] = $oDisplay->renderContainerClass($itemsPerRow, $aAtts['type_of_post']);
+
+
 
         (new SharedController())->output([
             'post_type'      => 'portfolios',
             'posts_per_page' => $itemsPerRow * $aAtts['number_of_rows'],
         ], $oDisplay, $aAtts
         );
-    }
-
-    public function renderHtml(WP_Post $post, $aAtts)
-    {
-        $imgUrl = get_the_post_thumbnail_url($post->ID);
-        if (strlen($imgUrl) == 0) {
-            $imgUrl = $aAtts['default_img'];
-        } ?>
-        <div class="<?php echo esc_attr($aAtts['wrapper_classes']); ?>">
-            <div class="<?php echo esc_attr($aAtts['inner_classes']); ?>">
-                <img class="photobox__preview attachment-<?php echo esc_attr($aAtts['image_size']) ?>"
-                     src="<?php echo esc_url($imgUrl) ?>" alt="<?php echo get_the_title(); ?>">
-                <span class="photobox__label"><?php echo get_the_title(); ?></span>
-            </div>
-        </div>
-        <?php
     }
 }

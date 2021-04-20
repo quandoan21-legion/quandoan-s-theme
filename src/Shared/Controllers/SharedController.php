@@ -34,8 +34,8 @@ class SharedController
         if ($this->oQuery->have_posts()) :
             while ($this->oQuery->have_posts()) :
                 $this->oQuery->the_post(); ?>
-                <div class="<?php echo esc_attr($aAtts['layout']); ?>">
-                    <?php $oDisplay->renderHtml($this->oQuery->post, $aAtts) ?>
+                <div class="<?php echo esc_attr($aAtts['container_class']); ?>">
+                    <?php $oDisplay->renderLayout($this->oQuery->post, $aAtts) ?>
                 </div>
             <?php
             endwhile;

@@ -118,7 +118,7 @@ use Portfolios\Controllers\PortfolioController as PortfolioController; ?>
                 </div>
                 <div id="blog-drag" class="row blog-slider">
                     <?php
-                    do_shortcode('[post layout="list" display="post" items_per_row="3"]');
+                    do_shortcode('[post layout="list" display="post" image_size="large" items_per_row="3"]');
                     ?>
                     <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->
                     <button class="hide-me" id="blog-btn">Show More Stories</button>
