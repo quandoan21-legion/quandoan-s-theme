@@ -2,17 +2,17 @@
     margin-bottom: 30px;
 }
 
-.work-box1 img.attachment-medium {
+img.attachment-medium {
     width: 370px;
     height: 370px;
     object-fit: cover;
 }
-.work-box1 img.attachment-small {
+img.attachment-small {
     width: 270px;
     height: 270px;
     object-fit: cover;
 }
-.work-box1 img.attachment-large {
+img.attachment-large {
     width: 470px;
     height: 470px;
     object-fit: cover;

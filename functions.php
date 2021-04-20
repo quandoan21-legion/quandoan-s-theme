@@ -38,7 +38,7 @@ new CustomFilterHooks();
 new CustomActionHooks();
 new MainController();
 new PortfolioController();
-//new PostController();
+new PostController();
 new SharedController();
 new RegisterPortfolio();
 new RegisterPosts();

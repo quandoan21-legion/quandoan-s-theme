@@ -2,17 +2,11 @@
 
 namespace Src\Shared\Controllers;
 
-use Portfolios\Controllers\PortfolioController as PortfolioController;
-use Posts\Controllers\PostController as PostController;
-use Src\Shared\Controllers\GridLayout as GridLayout;
+use WP_Query;
 
 class SharedController
 {
-    /**
-     * @var array
-     */
     public ?array $aArgs = [];
-    public        $classes;
 
     public function __construct()
     {
@@ -35,7 +29,7 @@ class SharedController
 
     public function output($aArgs, $oDisplay, $aAtts = [])
     {
-        $this->oQuery = new \WP_Query($aArgs);
+        $this->oQuery = new WP_Query($aArgs);
         ob_start();
         if ($this->oQuery->have_posts()) :
             while ($this->oQuery->have_posts()) :

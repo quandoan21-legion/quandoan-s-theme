@@ -26,7 +26,7 @@ class PortfolioController implements IRenderItems
                     'image_size'      => 'medium',
                     'wrapper_classes' => 'photobox photobox_type10',
                     'inner_classes'   => 'photobox__previewbox',
-                    'items_per_row'   => '4',
+                    'items_per_row'   => '3',
                     'number_of_rows'  => '4',
                     'type_of_post'    => '',
                     'default_img'     => 'http://wordpresstest.io/wp-content/uploads/2021/04/screenshot-copy-1.png',
@@ -63,7 +63,7 @@ class PortfolioController implements IRenderItems
         } ?>
         <div class="<?php echo esc_attr($aAtts['wrapper_classes']); ?>">
             <div class="<?php echo esc_attr($aAtts['inner_classes']); ?>">
-                <img class="attachment-<?php echo esc_attr($aAtts['image_size']) ?>"
+                <img class="photobox__preview attachment-<?php echo esc_attr($aAtts['image_size']) ?>"
                      src="<?php echo esc_url($imgUrl) ?>" alt="<?php echo get_the_title(); ?>">
                 <span class="photobox__label"><?php echo get_the_title(); ?></span>
             </div>
