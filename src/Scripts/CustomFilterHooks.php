@@ -42,7 +42,6 @@ class CustomFilterHooks
         } else {
             $wanted_strlen   =  $wantedStrlen;
         }
-        $myContent = '';
         $myContent = $post_content;
         $myContent = wp_strip_all_tags($myContent);
         if (strlen($myContent) > $wanted_strlen) {
