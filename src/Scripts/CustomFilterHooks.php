@@ -4,6 +4,8 @@ namespace Src\Scripts;
 
 class CustomFilterHooks
 {
+    public ?string $date;
+
     function __construct()
     {
         add_filter('renderPostDate', [$this, 'renderPostDate'], 10, 2);
@@ -12,15 +14,14 @@ class CustomFilterHooks
     }
 
     function renderPostDate(string $postDate, string $dateFormat)
+    : string
     {
-        $date = '';
         $date =  date_i18n($dateFormat, strtotime(esc_attr($postDate)));
         return $date;
     }
 
     function checkItemsPerRow($var)
     {
-        $itemsPerRow  =  '';
         if (
             is_numeric($var) == true &&
             (12 % $var)      == 0 &&
@@ -34,6 +35,7 @@ class CustomFilterHooks
     }
 
     public function renderTrimmedContents(string $post_content, string $wantedStrlen, string $end)
+    : string
     {
         if ($wantedStrlen < 30 || $wantedStrlen > 100) {
             $wanted_strlen   =  30;

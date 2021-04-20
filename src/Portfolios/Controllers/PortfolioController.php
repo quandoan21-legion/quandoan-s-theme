@@ -7,6 +7,7 @@ use Posts\Controllers\PostController as PostController;
 use Src\Shared\Controllers\GridLayout as GridLayout;
 use Src\Shared\Controllers\ListLayout as ListLayout;
 use Src\Shared\Controllers\IRenderItems;
+use WP_Post;
 
 class PortfolioController implements IRenderItems
 {
@@ -38,6 +39,7 @@ class PortfolioController implements IRenderItems
         } else {
             $oDisplay = new PostController();
         }
+
         $oItemsPerRow = new SharedController();
         $itemsPerRow  = $oItemsPerRow->renderItemsPerRow($aAtts);
         if ($aAtts['layout'] == 'grid') {
@@ -47,7 +49,6 @@ class PortfolioController implements IRenderItems
         }
         $aAtts['layout'] = $oOutput->renderContainerClass($itemsPerRow, $aAtts['type_of_post']);
 
-
         (new SharedController())->output([
             'post_type'      => 'portfolios',
             'posts_per_page' => $itemsPerRow * $aAtts['number_of_rows'],
@@ -55,7 +56,7 @@ class PortfolioController implements IRenderItems
         );
     }
 
-    public function renderHtml(\WP_Post $post, $aAtts)
+    public function renderHtml(WP_Post $post, $aAtts)
     {
         $imgUrl = get_the_post_thumbnail_url($post->ID);
         if (strlen($imgUrl) == 0) {

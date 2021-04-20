@@ -7,6 +7,7 @@ use Src\Shared\Controllers\SharedController as SharedController;
 use Portfolios\Controllers\PortfolioController as PortfolioController;
 use Src\Shared\Controllers\GridLayout as GridLayout;
 use Src\Shared\Controllers\ListLayout as ListLayout;
+use WP_Post;
 
 class PostController implements IRenderItems
 {
@@ -56,7 +57,7 @@ class PostController implements IRenderItems
         );
     }
 
-    public function renderHtml(\WP_Post $post, $aAtts)
+    public function renderHtml(WP_Post $post, $aAtts)
     {?>
         <h6><?php echo get_the_title() ?></h6>
         <p><?php echo apply_filters('renderPostDate', get_the_date(), $aAtts['date_format']) ?></p>

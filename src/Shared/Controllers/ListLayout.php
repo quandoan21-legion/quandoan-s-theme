@@ -1,7 +1,6 @@
 <?php
 
 namespace Src\Shared\Controllers;
-use Src\Shared\Controllers\SharedController as SharedController;
 class ListLayout implements Layout
 {
     public function renderContainerClass(string $itemsPerRow, string $typeOfPost)
