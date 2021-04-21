@@ -25,7 +25,7 @@ $opt_name = 'aRedux_vars';
 
 $theme = wp_get_theme(); // For use with some settings. Not necessary.
 
-$args = array(
+$aArgs = array(
 	// REQUIRED!!  Change these values as you need/desire.
 	'opt_name'                  => $opt_name,
 
@@ -150,103 +150,103 @@ $args = array(
 );
 
 // ADMIN BAR LINKS -> Setup custom links in the admin bar menu as external items.
-$args['admin_bar_links'][] = array(
+$aArgs['admin_bar_links'][] = array(
 	'id'    => 'redux-docs',
 	'href'  => '//docs.redux.io/',
 	'title' => esc_html__('Documentation', 'quandoan-theme-options'),
 );
 
-$args['admin_bar_links'][] = array(
+$aArgs['admin_bar_links'][] = array(
 	'id'    => 'redux-support',
 	'href'  => '//github.com/ReduxFramework/redux-framework/issues',
 	'title' => esc_html__('Support', 'quandoan-theme-options'),
 );
 
-$args['admin_bar_links'][] = array(
+$aArgs['admin_bar_links'][] = array(
 	'id'    => 'redux-extensions',
 	'href'  => 'redux.io/extensions',
 	'title' => esc_html__('Extensions', 'quandoan-theme-options'),
 );
 
 // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
-$args['share_icons'][] = array(
+$aArgs['share_icons'][] = array(
 	'url'   => '//github.com/ReduxFramework/ReduxFramework',
 	'title' => 'Visit us on GitHub',
 	'icon'  => 'el el-github',
 );
-$args['share_icons'][] = array(
+$aArgs['share_icons'][] = array(
 	'url'   => '//www.facebook.com/pages/Redux-Framework/243141545850368',
 	'title' => esc_html__('Like us on Facebook', 'quandoan-theme-options'),
 	'icon'  => 'el el-facebook',
 );
-$args['share_icons'][] = array(
+$aArgs['share_icons'][] = array(
 	'url'   => '//twitter.com/reduxframework',
 	'title' => esc_html__('Follow us on Twitter', 'quandoan-theme-options'),
 	'icon'  => 'el el-twitter',
 );
-$args['share_icons'][] = array(
+$aArgs['share_icons'][] = array(
 	'url'   => '//www.linkedin.com/company/redux-framework',
 	'title' => esc_html__('FInd us on LinkedIn', 'quandoan-theme-options'),
 	'icon'  => 'el el-linkedin',
 );
 
-$args['footer_icons'][] = array(
+$aArgs['footer_icons'][] = array(
 	'url'   => 'https://www.facebook.com/pages/',
 	'title' => esc_html__('Like us on Facebook', 'quandoan-theme-options'),
 	'icon'  => 'icofont-twitter',
 );
-$args['footer_icons'][] = array(
+$aArgs['footer_icons'][] = array(
 	'url'   => 'https://www.twitter.com/',
 	'title' => esc_html__('Follow us on Twitter', 'quandoan-theme-options'),
 	'icon'  => 'icofont-twitter',
 );
-$args['footer_icons'][] = array(
+$aArgs['footer_icons'][] = array(
 	'url'   => 'https://www.youtube.com/',
 	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
 	'icon'  => 'icofont-youtube',
 );
-$args['footer_icons'][] = array(
+$aArgs['footer_icons'][] = array(
 	'url'   => 'https://www.youtube.com/',
 	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
 	'icon'  => 'icofont-youtube',
 );
-$args['footer_icons'][] = array(
+$aArgs['footer_icons'][] = array(
 	'url'   => 'https://www.youtube.com/',
 	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
 	'icon'  => 'icofont-youtube',
 );
-$args['footer_icons'][] = array(
+$aArgs['footer_icons'][] = array(
 	'url'   => 'https://www.youtube.com/',
 	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
 	'icon'  => 'icofont-youtube',
 );
-$args['footer_icons'][] = array(
+$aArgs['footer_icons'][] = array(
 	'url'   => 'https://www.youtube.com/',
 	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
 	'icon'  => 'icofont-youtube',
 );
-$args['footer_icons'][] = array(
+$aArgs['footer_icons'][] = array(
 	'url'   => 'https://www.youtube.com/',
 	'title' => esc_html__('Subcribe us on Youtube', 'quandoan-theme-options'),
 	'icon'  => 'icofont-youtube',
 );
 
 // Panel Intro text -> before the form.
-if (!isset($args['global_variable']) || false !== $args['global_variable']) {
-	if (!empty($args['global_variable'])) {
-		$v = $args['global_variable'];
+if (!isset($aArgs['global_variable']) || false !== $aArgs['global_variable']) {
+	if (!empty($aArgs['global_variable'])) {
+		$v = $aArgs['global_variable'];
 	} else {
-		$v = str_replace('-', '_', $args['opt_name']);
+		$v = str_replace('-', '_', $aArgs['opt_name']);
 	}
-	$args['intro_text'] = '<p>' . sprintf(__('Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: $s', 'quandoan-theme-options') . '</p>', '<strong>' . $v . '</strong>');
+	$aArgs['intro_text'] = '<p>' . sprintf(__('Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: $s', 'quandoan-theme-options') . '</p>', '<strong>' . $v . '</strong>');
 } else {
-	$args['intro_text'] = '<p>' . esc_html__('This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.', 'quandoan-theme-options') . '</p>';
+	$aArgs['intro_text'] = '<p>' . esc_html__('This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.', 'quandoan-theme-options') . '</p>';
 }
 
 // Add content after the form.
-$args['footer_text'] = '<p>' . esc_html__('This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.', 'quandoan-theme-options') . '</p>';
+$aArgs['footer_text'] = '<p>' . esc_html__('This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.', 'quandoan-theme-options') . '</p>';
 
-Redux::set_args($opt_name, $args);
+Redux::set_args($opt_name, $aArgs);
 
 /*
  * ---> END ARGUMENTS

@@ -14,6 +14,7 @@ class SharedController
     }
 
     public function renderItemsPerRow(array $aArgs)
+    : int
     {
         if (
             is_numeric($aArgs['items_per_row']) == true &&
@@ -30,15 +31,18 @@ class SharedController
     public function output($aArgs, $oDisplay, $aAtts = [])
     {
         $this->oQuery = new WP_Query($aArgs);
+
         ob_start();
+
         if ($this->oQuery->have_posts()) :
+
             while ($this->oQuery->have_posts()) :
-                $this->oQuery->the_post(); ?>
-                <div class="<?php echo esc_attr($aAtts['container_class']); ?>">
-                    <?php $oDisplay->renderLayout($this->oQuery->post, $aAtts) ?>
-                </div>
-            <?php
+
+                $this->oQuery->the_post();
+                $oDisplay->renderLayout($this->oQuery->post, $aAtts);
+
             endwhile;
+
         endif;
 
         $html = ob_get_contents();

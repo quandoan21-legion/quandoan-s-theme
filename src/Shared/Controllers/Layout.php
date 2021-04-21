@@ -2,8 +2,9 @@
 
 namespace Src\Shared\Controllers;
 
+use WP_Post;
+
 interface Layout
 {
-    public function renderContainerClass(string $itemsPerRow, string $typeOfPost);
-    public function renderLayout(\WP_Post $post, array $aAtts);
+    public function renderLayout(WP_Post $post, array $aAtts);
 }

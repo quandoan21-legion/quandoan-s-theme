@@ -21,7 +21,6 @@ class PortfolioController implements IRenderItems
             shortcode_atts(
                 [
                     'layout'          => 'grid',
-                    'display'         => 'portfolio',
                     'image_size'      => 'medium',
                     'date_format'     => 'M d,Y',
                     'wanted_strlen'   => '60',
@@ -48,11 +47,7 @@ class PortfolioController implements IRenderItems
 
         $oItemsPerRow = new SharedController();
         $itemsPerRow  = $oItemsPerRow->renderItemsPerRow($aAtts);
-
-        $aAtts['container_class'] = $oDisplay->renderContainerClass($itemsPerRow, $aAtts['type_of_post']);
-
-
-
+        $aAtts['items_per_row'] = $itemsPerRow;
         (new SharedController())->output([
             'post_type'      => 'portfolios',
             'posts_per_page' => $itemsPerRow * $aAtts['number_of_rows'],

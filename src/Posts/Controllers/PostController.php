@@ -20,7 +20,6 @@ class PostController implements IRenderItems
             shortcode_atts(
                 [
                     'layout'          => 'list',
-                    'display'         => 'posts',
                     'image_size'      => 'medium',
                     'date_format'     => 'M d,Y',
                     'wanted_strlen'   => '60',
@@ -45,9 +44,8 @@ class PostController implements IRenderItems
                 break;
         }
 
-        $oItemsPerRow = new SharedController();
-        $itemsPerRow  = $oItemsPerRow->renderItemsPerRow($aAtts);
-        $aAtts['container_class'] = $oDisplay->renderContainerClass($itemsPerRow, $aAtts['type_of_post']);
+        $oItemsPerRow             = new SharedController();
+        $itemsPerRow              = $oItemsPerRow->renderItemsPerRow($aAtts);
         (new SharedController())->output([
             'post_type'      => 'post',
             'posts_per_page' => $itemsPerRow * $aAtts['number_of_rows'],

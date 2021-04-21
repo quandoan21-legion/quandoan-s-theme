@@ -3,8 +3,8 @@ session_start();
 global $aRedux_vars;
 
 use Src\MainController as MainController;
-use Src\Shared\Controllers\SharedController as SharedController;
-use Portfolios\Controllers\PortfolioController as PortfolioController; ?>
+
+?>
 
 <?php get_header() ?>
     <!-- SERVICES SECTION -->
@@ -85,7 +85,7 @@ use Portfolios\Controllers\PortfolioController as PortfolioController; ?>
                 </div>
                 <div class="row">
                     <?php
-                    do_shortcode('[portfolio layout="grid" display="portfolio"]');
+                    do_shortcode('[portfolio layout="grid"]');
                     ?>
                 </div>
 
@@ -118,7 +118,7 @@ use Portfolios\Controllers\PortfolioController as PortfolioController; ?>
                 </div>
                 <div id="blog-drag" class="row blog-slider">
                     <?php
-                    do_shortcode('[post layout="list" display="post" image_size="large" items_per_row="3"]');
+                    do_shortcode('[post layout="list" items_per_row="3"]');
                     ?>
                     <!-- Blog Button to Show More or Less on Mobile&Tablet View  -->
                     <button class="hide-me" id="blog-btn">Show More Stories</button>
