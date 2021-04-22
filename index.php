@@ -10,12 +10,6 @@ use Src\MainController as MainController;
     <!-- SERVICES SECTION -->
     <section id="about-us" class="services">
         <div class="container-fluid">
-            <div class="side-img">
-                <img src="images/aside.svg" alt="">
-            </div>
-            <div class="side2-img">
-                <img src="images/aside2.svg" alt="">
-            </div>
             <div class="container">
                 <div class="row">
                     <?php
