@@ -11,5 +11,6 @@ return array(
     'Portfolios\\' => array($baseDir . '/src/Portfolios'),
     'OurServices\\' => array($baseDir . '/src/OurServices'),
     'Function\\' => array($baseDir . '/functions.php'),
+    'Banner\\' => array($baseDir . '/src/Banner'),
     'AboutUs\\' => array($baseDir . '/src/AboutUs'),
 );

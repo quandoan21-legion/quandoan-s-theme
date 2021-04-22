@@ -14,6 +14,7 @@
       "Portfolios\\": "src/Portfolios/",
       "AboutUs\\": "src/AboutUs/",
       "OurServices\\": "src/OurServices/",
+      "Banner\\": "src/Banner/",
       "Posts\\": "src/Posts/",
       "Function\\": "functions.php"
     }

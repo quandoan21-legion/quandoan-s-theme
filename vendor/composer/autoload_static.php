@@ -24,6 +24,10 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
         array (
             'Function\\' => 9,
         ),
+        'B' => 
+        array (
+            'Banner\\' => 7,
+        ),
         'A' => 
         array (
             'AboutUs\\' => 8,
@@ -50,6 +54,10 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
         'Function\\' => 
         array (
             0 => __DIR__ . '/../..' . '/functions.php',
+        ),
+        'Banner\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Banner',
         ),
         'AboutUs\\' => 
         array (

@@ -47,21 +47,7 @@
         </div>
 
         <!-- HERO SECTION -->
-        <div class="container-fluid hero">
-            <img class="hero_img" src="<?php echo $aRedux_vars['banner_img']['url'] ?>" alt="">
-            <div class="container">
-                <!-- Hero Title -->
-                <h1><?php echo $aRedux_vars['banner_title'] ?></h1>
-                <!-- Hero Title Info -->
-                <p><?php echo $aRedux_vars['banner_content'] ?></p>
-                <div class="hero-btns">
-                    <!-- Hero Btn First -->
-                    <a data-scroll href="<?php echo $aRedux_vars['banner_left_btn_button_url'] ?>"><?php echo
-                        $aRedux_vars['banner_left_button_content'] ?></a>
-                    <!-- Hero Btn Second -->
-                    <a data-scroll href="<?php echo $aRedux_vars['banner_left_btn_button_url'] ?>"><?php echo
-                        $aRedux_vars['banner_right_btn_content'] ?></a>
-                </div>
-            </div>
-        </div>
+        <?php
+            do_shortcode('[banner title="This is banner title"]');
+        ?>
     </header>

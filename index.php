@@ -29,20 +29,18 @@ use Src\MainController as MainController;
     <section class="about">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-12 col-lg-6">
-                    <img src="<?php echo $aRedux_vars['about_us_img']['url'] ?>" alt="">
-                </div>
-                <div class="col-12 col-sm-12 col-lg-6">
-                    <h5><?php echo $aRedux_vars['about_us_sub_title'] ?></h5>
-                    <h2><?php echo $aRedux_vars['about_us_title'] ?></h2>
-                    <p><?php echo $aRedux_vars['about_us_content'] ?></p>
-                </div>
+                <?php
+                do_shortcode('[about_us type="rightImg"]');
+                ?>
             </div>
         </div>
     </section>
     <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="portfolio">
         <div class="container-fluid">
+            <div class="portfolio-aside">
+                <img src="images/aside3.svg" alt="">
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-12">
