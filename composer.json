@@ -12,6 +12,8 @@
     "psr-4": {
       "Src\\": "src/",
       "Portfolios\\": "src/Portfolios/",
+      "AboutUs\\": "src/AboutUs/",
+      "OurServices\\": "src/OurServices/",
       "Posts\\": "src/Posts/",
       "Function\\": "functions.php"
     }

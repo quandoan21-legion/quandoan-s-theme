@@ -28,14 +28,30 @@ class SharedController
         return $itemsPerRow;
     }
 
+    public function renderItemsPerRowWithComponent(array $aArgs)
+    : array
+    {
+        $itemsPerRow = $aArgs['items_per_row'];
+        if ((12 % $itemsPerRow) == 0 && $itemsPerRow <= 6 ) {
+            $itemsPerRow = $aArgs['items_per_row'];
+        } else {
+            $itemsPerRow = 3;
+        }
+        $itemSize = 12 / $itemsPerRow;
+        $loopTime = (12 - $itemSize) / $itemSize;
+        return $aArgs = [
+            'item_size' => $itemSize,
+            'loop_time' => $loopTime,
+        ];
+    }
+
     public function output($aArgs, $oDisplay, $aAtts = [])
     {
         $this->oQuery = new WP_Query($aArgs);
-
         ob_start();
 
         if ($this->oQuery->have_posts()) :
-
+            $loop_count = 0;
             while ($this->oQuery->have_posts()) :
 
                 $this->oQuery->the_post();

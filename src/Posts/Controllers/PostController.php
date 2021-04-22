@@ -4,8 +4,7 @@ namespace Posts\Controllers;
 
 use Src\Shared\Controllers\IRenderItems;
 use Src\Shared\Controllers\SharedController as SharedController;
-use Src\Shared\Controllers\GridLayout as GridLayout;
-use Src\Shared\Controllers\ListLayout as ListLayout;
+use Src\Shared\Controllers\SharedLayout as SharedLayout;
 
 class PostController implements IRenderItems
 {
@@ -34,15 +33,8 @@ class PostController implements IRenderItems
                 $aAtts,
             );
 
-        switch ($aAtts['layout']) {
-            case 'grid':
-                $oDisplay = new GridLayout();
-                break;
-
-            case 'list':
-                $oDisplay = new ListLayout();
-                break;
-        }
+        $oLayout = new SharedLayout;
+        $oDisplay = $oLayout->getLayout($aAtts['layout']);
 
         $oItemsPerRow             = new SharedController();
         $itemsPerRow              = $oItemsPerRow->renderItemsPerRow($aAtts);

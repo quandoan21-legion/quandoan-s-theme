@@ -48,17 +48,19 @@
 
         <!-- HERO SECTION -->
         <div class="container-fluid hero">
-            <img src="images/hero.svg" alt="">
+            <img class="hero_img" src="<?php echo $aRedux_vars['banner_img']['url'] ?>" alt="">
             <div class="container">
                 <!-- Hero Title -->
-                <h1>The Spirit of<br>Digital Agency.</h1>
+                <h1><?php echo $aRedux_vars['banner_title'] ?></h1>
                 <!-- Hero Title Info -->
-                <p>Vestibulum ac diam sit amet quam vehicula elementum<br> amet est on dui. Nulla porttitor accumsan tincidunt.</p>
+                <p><?php echo $aRedux_vars['banner_content'] ?></p>
                 <div class="hero-btns">
                     <!-- Hero Btn First -->
-                    <a data-scroll href="#about-us">More About us</a>
+                    <a data-scroll href="<?php echo $aRedux_vars['banner_left_btn_button_url'] ?>"><?php echo
+                        $aRedux_vars['banner_left_button_content'] ?></a>
                     <!-- Hero Btn Second -->
-                    <a data-scroll href="#contact-us">Get in Touch.</a>
+                    <a data-scroll href="<?php echo $aRedux_vars['banner_left_btn_button_url'] ?>"><?php echo
+                        $aRedux_vars['banner_right_btn_content'] ?></a>
                 </div>
             </div>
         </div>

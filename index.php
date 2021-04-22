@@ -18,32 +18,9 @@ use Src\MainController as MainController;
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-lg-4 service-txt">
-                        <h2>Anything you need,we’ve got you covered</h2>
-                        <div class="hero-btns service-btn">
-                            <a data-scroll href="#contact-us">Get in Touch</a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="service-box">
-                            <img src="images/service-icon1.svg" alt="">
-                            <!-- Service Title -->
-                            <h3>Web & Graphic<br>Design</h3>
-                            <!-- Replace Patch to Image Under -->
-                            <p>Vestibulum ac diam sit amet quam vehicula elementum amet est on dui. Nulla porttitor
-                                accumsan tincidunt.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-4">
-                        <div class="service-box">
-                            <img src="images/service-icon2.svg" alt="">
-                            <!-- Service Title -->
-                            <h3>Web & App<br>Development</h3>
-                            <!-- Service Info -->
-                            <p>Vestibulum ac diam sit amet quam vehicula elementum amet est on dui. Nulla porttitor
-                                accumsan tincidunt.</p>
-                        </div>
-                    </div>
+                    <?php
+                    do_shortcode('[our_services layout="our_services" items_per_row="3"]');
+                    ?>
                 </div>
             </div>
         </div>
@@ -53,15 +30,12 @@ use Src\MainController as MainController;
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-lg-6">
-                    <img src="images/aboutimg.svg" alt="">
+                    <img src="<?php echo $aRedux_vars['about_us_img']['url'] ?>" alt="">
                 </div>
                 <div class="col-12 col-sm-12 col-lg-6">
-                    <h5>OUR COMPANY</h5>
-                    <h2>Some Fine<br>Words About Us</h2>
-                    <!-- Replace About Us Text Under -->
-                    <p>Vestibulum ac diam sit amet quam vehicula elementum amet est on dui. Nulla porttitor accumsan
-                        tincidunt.Vestibulum ac diam sit amet.Quam vehicula elementum amet est on dui. Nulla porttitor
-                        accumsan tincidunt.</p>
+                    <h5><?php echo $aRedux_vars['about_us_sub_title'] ?></h5>
+                    <h2><?php echo $aRedux_vars['about_us_title'] ?></h2>
+                    <p><?php echo $aRedux_vars['about_us_content'] ?></p>
                 </div>
             </div>
         </div>
@@ -69,9 +43,6 @@ use Src\MainController as MainController;
     <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="portfolio">
         <div class="container-fluid">
-            <div class="portfolio-aside">
-                <img src="images/aside3.svg" alt="">
-            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-12">

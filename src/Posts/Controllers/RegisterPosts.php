@@ -23,7 +23,7 @@ class RegisterPosts
             'publicly_queryable' => true,
             'has_archive'        => true,
             'menu_icon'          => 'dashicons-media-document ',
-            'supports'           => array('title', 'editor', 'thumbnail'),
+            'supports'           => array('title', 'editor', 'thumbnail', 'post-thumbnail'),
             'rewrite'            => array('slug' => 'quandoan'),
 
         );

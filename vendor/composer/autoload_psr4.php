@@ -9,5 +9,7 @@ return array(
     'Src\\' => array($baseDir . '/src'),
     'Posts\\' => array($baseDir . '/src/Posts'),
     'Portfolios\\' => array($baseDir . '/src/Portfolios'),
+    'OurServices\\' => array($baseDir . '/src/OurServices'),
     'Function\\' => array($baseDir . '/functions.php'),
+    'AboutUs\\' => array($baseDir . '/src/AboutUs'),
 );

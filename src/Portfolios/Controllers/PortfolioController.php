@@ -3,8 +3,7 @@
 namespace Portfolios\Controllers;
 
 use Src\Shared\Controllers\SharedController as SharedController;
-use Src\Shared\Controllers\GridLayout as GridLayout;
-use Src\Shared\Controllers\ListLayout as ListLayout;
+use Src\Shared\Controllers\SharedLayout as SharedLayout;
 use Src\Shared\Controllers\IRenderItems;
 
 class PortfolioController implements IRenderItems
@@ -16,7 +15,6 @@ class PortfolioController implements IRenderItems
 
     public function renderContainerTagClasses(array $aAtts = [])
     {
-
         $aAtts =
             shortcode_atts(
                 [
@@ -35,18 +33,12 @@ class PortfolioController implements IRenderItems
                 $aAtts,
             );
 
-        switch ($aAtts['layout']) {
-            case 'grid':
-                $oDisplay = new GridLayout();
-                break;
+        $oLayout  = new SharedLayout();
+        $oDisplay = $oLayout->getLayout($aAtts['layout']);
 
-            case 'list':
-                $oDisplay = new ListLayout();
-                break;
-        }
+        $oItemsPerRow           = new SharedController();
+        $itemsPerRow            = $oItemsPerRow->renderItemsPerRow($aAtts);
 
-        $oItemsPerRow = new SharedController();
-        $itemsPerRow  = $oItemsPerRow->renderItemsPerRow($aAtts);
         $aAtts['items_per_row'] = $itemsPerRow;
         (new SharedController())->output([
             'post_type'      => 'portfolios',

@@ -16,9 +16,17 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
             'Posts\\' => 6,
             'Portfolios\\' => 11,
         ),
+        'O' => 
+        array (
+            'OurServices\\' => 12,
+        ),
         'F' => 
         array (
             'Function\\' => 9,
+        ),
+        'A' => 
+        array (
+            'AboutUs\\' => 8,
         ),
     );
 
@@ -35,9 +43,17 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
         array (
             0 => __DIR__ . '/../..' . '/src/Portfolios',
         ),
+        'OurServices\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/OurServices',
+        ),
         'Function\\' => 
         array (
             0 => __DIR__ . '/../..' . '/functions.php',
+        ),
+        'AboutUs\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/AboutUs',
         ),
     );
 

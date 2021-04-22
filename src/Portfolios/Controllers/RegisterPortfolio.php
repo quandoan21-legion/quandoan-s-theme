@@ -23,7 +23,7 @@ class RegisterPortfolio
             'has_archive'        => true,
             'publicly_queryable' => true,
             'menu_icon'          => 'dashicons-media-document ',
-            'supports'           => ['title', 'editor', 'thumbnail'],
+            'supports'           => ['title', 'editor', 'thumbnail', 'post-thumbnail'],
             'rewrite'            => ['slug' => 'Portfolios'],
 
         ];
