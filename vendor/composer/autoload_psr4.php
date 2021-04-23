@@ -6,12 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'TextWithPostsLayout\\' => array($baseDir . '/src/TextWithPostsLayout'),
+    'TextWithPictureLayout\\' => array($baseDir . '/src/TextWithPictureLayout'),
     'Src\\' => array($baseDir . '/src'),
     'Posts\\' => array($baseDir . '/src/Posts'),
     'Portfolios\\' => array($baseDir . '/src/Portfolios'),
-    'OurServices\\' => array($baseDir . '/src/OurServices'),
+    'MessageLayout\\' => array($baseDir . '/src/MessageLayout'),
     'Function\\' => array($baseDir . '/functions.php'),
-    'ContactUs\\' => array($baseDir . '/src/ContactUs'),
     'Banner\\' => array($baseDir . '/src/Banner'),
-    'AboutUs\\' => array($baseDir . '/src/AboutUs'),
 );

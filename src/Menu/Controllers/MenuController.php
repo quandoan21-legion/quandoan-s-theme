@@ -12,13 +12,14 @@ class MenuController
 
     public function registerMenu()
     {
-        $aNav = array(
-            'main-nav '  => 'Menu chính',
-        );
+        $aNav = [
+            'main-nav '   => 'Main Menu',
+            'footer-nav ' => 'Footer Menu',
+        ];
         foreach ($aNav as $value) {
             $key = array_search($value, $aNav);
             if (has_nav_menu($key) == false) {
-                register_nav_menus( $key, $value);
+                register_nav_menus($key, $value);
             }
         }
     }

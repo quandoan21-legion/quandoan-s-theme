@@ -8,27 +8,30 @@ use Src\MainController as MainController;
 
 <?php get_header() ?>
     <!-- SERVICES SECTION -->
-    <section id="about-us" class="services">
+    <section id="services" class="services">
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
                     <?php
-                    do_shortcode('[our_services layout="our_services" items_per_row="3"]');
+                    do_shortcode('[TextWithPostsLayout layout="text_with_posts" items_per_row="3"]');
                     ?>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- ABOUT SECTION -->
     <section class="about">
         <div class="container">
             <div class="row">
+
                 <?php
-                do_shortcode('[about_us type="rightImg"]');
+                do_shortcode('[TextWithPictureLayout type="leftImg"]');
                 ?>
             </div>
         </div>
     </section>
+
     <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="portfolio">
         <div class="container-fluid">
@@ -90,7 +93,7 @@ use Src\MainController as MainController;
     </section>
     <!-- CONTACT SECTION -->
 <?php
-do_shortcode('[contact_us sm_left_input_size="7" sm_right_input_size="5" message_size="12"]')
+do_shortcode('[MessageLayout sm_left_input_size="7" sm_right_input_size="5" message_size="12" contact_us_btn_url="#####"]')
 ?>
     <!-- FOOTER SECTION -->
 <?php get_footer() ?>

@@ -7,6 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
 {
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'TextWithPostsLayout\\' => 20,
+            'TextWithPictureLayout\\' => 22,
+        ),
         'S' => 
         array (
             'Src\\' => 4,
@@ -16,29 +21,29 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
             'Posts\\' => 6,
             'Portfolios\\' => 11,
         ),
-        'O' => 
+        'M' => 
         array (
-            'OurServices\\' => 12,
+            'MessageLayout\\' => 14,
         ),
         'F' => 
         array (
             'Function\\' => 9,
         ),
-        'C' => 
-        array (
-            'ContactUs\\' => 10,
-        ),
         'B' => 
         array (
             'Banner\\' => 7,
         ),
-        'A' => 
-        array (
-            'AboutUs\\' => 8,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'TextWithPostsLayout\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/TextWithPostsLayout',
+        ),
+        'TextWithPictureLayout\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/TextWithPictureLayout',
+        ),
         'Src\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -51,25 +56,17 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
         array (
             0 => __DIR__ . '/../..' . '/src/Portfolios',
         ),
-        'OurServices\\' => 
+        'MessageLayout\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/OurServices',
+            0 => __DIR__ . '/../..' . '/src/MessageLayout',
         ),
         'Function\\' => 
         array (
             0 => __DIR__ . '/../..' . '/functions.php',
         ),
-        'ContactUs\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/ContactUs',
-        ),
         'Banner\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Banner',
-        ),
-        'AboutUs\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/AboutUs',
         ),
     );
 

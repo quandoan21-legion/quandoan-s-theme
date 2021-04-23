@@ -4,7 +4,7 @@ namespace Src\Shared\Controllers;
 
 use WP_Post;
 
-class OurServicesLayout implements Layout
+class TextWithPostsLayout implements Layout
 {
     public function renderLayout(WP_Post $post, array $aAtts)
     {

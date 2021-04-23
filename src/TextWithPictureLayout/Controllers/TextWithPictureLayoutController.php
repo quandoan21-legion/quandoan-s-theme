@@ -1,15 +1,16 @@
 <?php
 
-namespace AboutUs\Controllers;
-class AboutUsController
+namespace TextWithPictureLayout\Controllers;
+class TextWithPictureLayoutController
 {
     public function __construct()
     {
-        add_shortcode('about_us', [$this, 'renderHtml']);
+        add_shortcode('TextWithPictureLayout', [$this, 'renderHtml']);
     }
 
     public function renderHtml(array $aAtts = [])
     {
+
         $aAtts =
             shortcode_atts(
                 [
@@ -21,8 +22,8 @@ class AboutUsController
                 ],
                 $aAtts,
             );
-        if ($aAtts['type'] == 'leftImg'):
-            ?>
+        ob_start();
+        if ($aAtts['type'] == 'leftImg'):?>
             <div class="col-12 col-sm-12 col-lg-6">
                 <img src="<?php echo $aAtts['img'] ?>" alt="">
             </div>

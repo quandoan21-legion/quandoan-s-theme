@@ -12,11 +12,11 @@
     "psr-4": {
       "Src\\": "src/",
       "Portfolios\\": "src/Portfolios/",
-      "AboutUs\\": "src/AboutUs/",
-      "OurServices\\": "src/OurServices/",
+      "TextWithPictureLayout\\": "src/TextWithPictureLayout/",
+      "TextWithPostsLayout\\": "src/TextWithPostsLayout/",
       "Banner\\": "src/Banner/",
       "Posts\\": "src/Posts/",
-      "ContactUs\\": "src/ContactUs/",
+      "MessageLayout\\": "src/MessageLayout/",
       "Function\\": "functions.php"
     }
   },

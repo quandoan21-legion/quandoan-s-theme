@@ -63,6 +63,7 @@ class SharedController
 
         $html = ob_get_contents();
         ob_end_clean();
+//        var_dump($html);die;
         echo $html;
         wp_reset_postdata();
     }

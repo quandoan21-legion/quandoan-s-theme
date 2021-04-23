@@ -1,12 +1,12 @@
 <?php
 
-namespace ContactUs\Controllers;
+namespace MessageLayout\Controllers;
 
-class ContactUsController
+class MessageLayoutController
 {
     public function __construct()
     {
-        add_shortcode('contact_us', [$this, 'renderContainerTagClasses']);
+        add_shortcode('MessageLayout', [$this, 'renderContainerTagClasses']);
     }
 
     public function renderContainerTagClasses(array $aAtts = [])
@@ -25,9 +25,11 @@ class ContactUsController
                     'message_placeholder'        => 'This is message placeholder',
                     'message_size'               => '12',
                     'message_row'                => '5',
+                    'contact_us_btn_url'         => '#',
                 ],
                 $aAtts,
-            ); ?>
+            );
+        ?>
         <section id="contact-us" class="contact">
             <div class="container">
                 <div class="row">
@@ -64,7 +66,7 @@ class ContactUsController
                     <div class="col-12">
                         <div class="hero-btns contact-btn">
                             <!-- Send Message Btn -->
-                            <a href="#">Send Message</a>
+                            <a href="<?php echo $aAtts['contact_us_btn_url'] ?>">Send Message</a>
                         </div>
                     </div>
                 </div>

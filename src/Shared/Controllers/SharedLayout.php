@@ -16,8 +16,8 @@ class SharedLayout
                 $oDisplay = new ListLayout();
                 break;
 
-            case 'our_services':
-                $oDisplay = new OurServicesLayout();
+            case 'text_with_posts':
+                $oDisplay = new TextWithPostsLayout();
                 break;
         }
         return $oDisplay;

@@ -9,23 +9,31 @@
                     <h5><?php echo $aRedux_vars['footer-h5'] ?></h5>
                     <h3><?php echo $aRedux_vars['footer-h3'] ?></h3>
                     <nav class="navbar navbar-expand-lg footer-nav">
-                        <?php wp_nav_menu(array(
-                            'theme_location'  => 'footer-nav',
-                            'container'       => 'ul',
-                            'menu_class'      => 'contact-nav'
-                        )); ?>
+                        <?php wp_nav_menu([
+                                'theme_location' => 'footer-nav',
+                                'container'      => 'ul',
+                                'menu_class'     => 'contact-nav',
+                            ]
+                        ); ?>
                     </nav>
-                    <h6><?php echo $aRedux_vars['footer-h6'] ?></h6>
+                    <h6><?php echo $aRedux_vars['footer-copyrights'] ?></h6>
                     <ul class="social">
-                        <?php foreach ($aRedux_vars['opt-slides'] as $value) {?>
-                            
-                            <li><a href="<?php echo $value['url'] ?>"><i class="<?php echo $value['title'] ?>"></i></a></li>
+
+                        <?php foreach ($aRedux_vars['footerIcons'] as $value) { ?>
+
+                            <li>
+                                <a href="<?php echo $value['url'] ?>">
+                                    <i class="<?php echo $value['title'] ?>">
+                                        icon
+                                    </i>
+                                </a>
+                            </li>
                         <?php } ?>
                     </ul>
                 </div>
             </div>
         </div>
-    <?php  } ?>
+    <?php } ?>
 </footer>
 <!-- Scripts -->
 

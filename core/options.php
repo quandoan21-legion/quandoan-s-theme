@@ -398,6 +398,21 @@ $section = [
             'subtitle' => esc_html__('Subtitle', 'quandoan-theme-options'),
             'desc'     => esc_html__('Field Description', 'quandoan-theme-options'),
             'default'  => 'Default Text',
+        ], [
+            'id'          => 'footerIcons',
+            'type'        => 'slides',
+            'show'        => [
+                'title'       => true,
+                'description' => false,
+                'url'         => true              // <<========= that is what was asked at the top.
+            ],
+            'placeholder' => [
+                'title' => __('Your Icon Class', 'quandoan-theme-options'),
+                'url'   => __('Your Icon URL', 'quandoan-theme-options'),
+            ],
+            'title'       => esc_html__('Footer icons', 'quandoan-theme-options'),
+            'subtitle'    => esc_html__('Subtitle', 'quandoan-theme-options'),
+            'desc'        => esc_html__('Field Description', 'quandoan-theme-options'),
         ],
     ],
 ];
