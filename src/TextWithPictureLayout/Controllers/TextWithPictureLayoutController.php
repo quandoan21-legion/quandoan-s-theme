@@ -22,6 +22,7 @@ class TextWithPictureLayoutController
                 ],
                 $aAtts,
             );
+
         ob_start();
         if ($aAtts['type'] == 'leftImg'):?>
             <div class="col-12 col-sm-12 col-lg-6">
