@@ -16,6 +16,7 @@
       "OurServices\\": "src/OurServices/",
       "Banner\\": "src/Banner/",
       "Posts\\": "src/Posts/",
+      "ContactUs\\": "src/ContactUs/",
       "Function\\": "functions.php"
     }
   },

@@ -89,34 +89,8 @@ use Src\MainController as MainController;
             </div>
     </section>
     <!-- CONTACT SECTION -->
-    <section id="contact-us" class="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h5>CONTACT US</h5>
-                    <h2>Get in Touch</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-6 email">
-                    <input placeholder="Your email" type="email" id="email" pattern=".+@globex.com" size="30" required>
-                </div>
-                <div class="col-12 col-lg-6 email">
-                    <input placeholder="Subject" type="subject" id="subject" size="30" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 message">
-                    <textarea id="message" name="message" rows="5" cols="1">Message here...</textarea>
-                </div>
-                <div class="col-12">
-                    <div class="hero-btns contact-btn">
-                        <!-- Send Message Btn -->
-                        <a href="#">Send Message</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<?php
+do_shortcode('[contact_us sm_left_input_size="7" sm_right_input_size="5" message_size="12"]')
+?>
     <!-- FOOTER SECTION -->
 <?php get_footer() ?>
