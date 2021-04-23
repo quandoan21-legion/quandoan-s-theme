@@ -21,38 +21,23 @@ class AboutUsController
                 ],
                 $aAtts,
             );
-        ob_start(); ?>
-
+        if ($aAtts['type'] == 'leftImg'):
+            ?>
+            <div class="col-12 col-sm-12 col-lg-6">
+                <img src="<?php echo $aAtts['img'] ?>" alt="">
+            </div>
+        <?php endif; ?>
+        <div class="col-12 col-sm-12 col-lg-6">
+            <h5><?php echo $aAtts['sub_title'] ?></h5>
+            <h2><?php echo $aAtts['title'] ?></h2>
+            <p><?php echo $aAtts['content'] ?></p>
+        </div>
+        <?php if ($aAtts['type'] == 'rightImg'): ?>
         <div class="col-12 col-sm-12 col-lg-6">
             <img src="<?php echo $aAtts['img'] ?>" alt="">
         </div>
+    <?php endif; ?>
 
-        <?php
-        $imgHtml = ob_get_clean();
-        ob_end_clean();
-        ?>
-
-        <section class="about">
-            <div class="container">
-                <div class="row">
-                    <?php
-                    if ($aAtts['type'] == 'leftImg') {
-                        echo $imgHtml;
-                    }
-                    ?>
-                    <div class="col-12 col-sm-12 col-lg-6">
-                        <h5><?php echo $aAtts['sub_title'] ?></h5>
-                        <h2><?php echo $aAtts['title'] ?></h2>
-                        <p><?php echo $aAtts['content'] ?></p>
-                    </div>
-                    <?php
-                    if ($aAtts['type'] == 'rightImg') {
-                        echo $imgHtml;
-                    }
-                    ?>
-                </div>
-            </div>
-        </section>
         <?php
         $html = ob_get_contents();
         ob_end_clean();
