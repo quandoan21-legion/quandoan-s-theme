@@ -13,7 +13,7 @@ use Src\MainController as MainController;
             <div class="container">
                 <div class="row">
                     <?php
-                    do_shortcode('[TextWithPostsLayout layout="text_with_posts" items_per_row="3"]');
+                    do_shortcode('[text_with_post_layout layout="text_with_posts" items_per_row="3"]');
                     ?>
                 </div>
             </div>
@@ -26,7 +26,7 @@ use Src\MainController as MainController;
             <div class="row">
 
                 <?php
-                do_shortcode('[TextWithPictureLayout type="leftImg"]');
+                do_shortcode('[text_with_picture_layout type="leftImg"]');
                 ?>
             </div>
         </div>
@@ -93,7 +93,7 @@ use Src\MainController as MainController;
     </section>
     <!-- CONTACT SECTION -->
 <?php
-do_shortcode('[MessageLayout sm_left_input_size="7" sm_right_input_size="5" message_size="12" contact_us_btn_url="#####"]')
+do_shortcode('[message_layout sm_left_input_size="7" sm_right_input_size="5" message_size="12" contact_us_btn_url="#####"]')
 ?>
     <!-- FOOTER SECTION -->
 <?php get_footer() ?>

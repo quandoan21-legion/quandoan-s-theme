@@ -1,7 +1,9 @@
 <?php
 
 namespace Src\Shared\Controllers;
-
+use  SharedController\GridLayout\Controller\GridLayout as GridLayout;
+use  SharedController\ListLayout\Controller\ListLayout as ListLayout;
+use  SharedController\TextWithPostsLayout\Controller\TextWithPostsLayout as TextWithPostsLayout;
 
 class SharedLayout
 {

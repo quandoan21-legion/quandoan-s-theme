@@ -6,7 +6,7 @@ class MessageLayoutController
 {
     public function __construct()
     {
-        add_shortcode('MessageLayout', [$this, 'renderContainerTagClasses']);
+        add_shortcode('message_layout', [$this, 'renderContainerTagClasses']);
     }
 
     public function renderContainerTagClasses(array $aAtts = [])

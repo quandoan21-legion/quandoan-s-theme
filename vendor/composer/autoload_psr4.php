@@ -9,6 +9,7 @@ return array(
     'TextWithPostsLayout\\' => array($baseDir . '/src/TextWithPostsLayout'),
     'TextWithPictureLayout\\' => array($baseDir . '/src/TextWithPictureLayout'),
     'Src\\' => array($baseDir . '/src'),
+    'SharedController\\' => array($baseDir . '/src/Shared/Controllers'),
     'Posts\\' => array($baseDir . '/src/Posts'),
     'Portfolios\\' => array($baseDir . '/src/Portfolios'),
     'MessageLayout\\' => array($baseDir . '/src/MessageLayout'),

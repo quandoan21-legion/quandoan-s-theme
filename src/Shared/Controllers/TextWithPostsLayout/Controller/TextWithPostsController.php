@@ -1,7 +1,7 @@
 <?php
 
 
-namespace TextWithPostsLayout\Controllers;
+namespace SharedController\ListLayout\Controller;
 
 use Src\Shared\Controllers\SharedController;
 use Src\Shared\Controllers\SharedLayout;
@@ -11,7 +11,7 @@ class TextWithPostsController implements IRenderItems
 {
     public function __construct()
     {
-        add_shortcode('TextWithPostsLayout', [$this, 'renderContainerTagClasses']);
+        add_shortcode('text_with_post_layout', [$this, 'renderContainerTagClasses']);
     }
 
     public function renderContainerTagClasses(array $aAtts = [])

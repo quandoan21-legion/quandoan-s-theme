@@ -1,7 +1,8 @@
 <?php
 
-namespace Src\Shared\Controllers;
+namespace SharedController\TextWithPostsLayout\Controller;
 
+use Src\Shared\Controllers\Layout as Layout;
 use WP_Post;
 
 class TextWithPostsLayout implements Layout

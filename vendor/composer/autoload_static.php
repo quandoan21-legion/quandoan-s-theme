@@ -15,6 +15,7 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
         'S' => 
         array (
             'Src\\' => 4,
+            'SharedController\\' => 17,
         ),
         'P' => 
         array (
@@ -47,6 +48,10 @@ class ComposerStaticInit3ce9e63202769d1e9987daf3ea3547ce
         'Src\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'SharedController\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Shared/Controllers',
         ),
         'Posts\\' => 
         array (

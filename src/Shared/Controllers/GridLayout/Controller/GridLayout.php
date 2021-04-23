@@ -1,6 +1,7 @@
 <?php
 
-namespace Src\Shared\Controllers;
+namespace SharedController\GridLayout\Controller;
+use Src\Shared\Controllers\Layout as Layout;
 
 use WP_Post;
 

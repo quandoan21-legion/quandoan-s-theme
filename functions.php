@@ -10,7 +10,7 @@ use Src\MainController as MainController;
 use Src\Shared\Controllers\SharedController as SharedController;
 use Src\Shared\Controllers\SharedLayout as SharedLayout;
 use TextWithPostsLayout\Controllers\TextWithPostsLayout as TextWithPostsLayout;
-use TextWithPostsLayout\Controllers\TextWithPostsController as TextWithPostsController;
+use SharedController\ListLayout\Controller\TextWithPostsController as TextWithPostsController;
 use TextWithPictureLayout\Controllers\TextWithPictureLayoutController as TextWithPictureLayoutController;
 use MessageLayout\Controllers\MessageLayoutController as MessageLayoutController;
 use Banner\Controllers\BannerController as BannerController;
@@ -40,7 +40,7 @@ new MainController();
 new SharedLayout();
 new TextWithPostsLayout();
 new TextWithPostsController();
-new TextWithPictureLayoutController();
+new TextWithPictureLayoutController();git 
 new MessageLayoutController();
 new BannerController();
 new PortfolioController();

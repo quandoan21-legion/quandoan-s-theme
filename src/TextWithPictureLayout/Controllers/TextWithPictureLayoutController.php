@@ -5,7 +5,7 @@ class TextWithPictureLayoutController
 {
     public function __construct()
     {
-        add_shortcode('TextWithPictureLayout', [$this, 'renderHtml']);
+        add_shortcode('text_with_picture_layout', [$this, 'renderHtml']);
     }
 
     public function renderHtml(array $aAtts = [])

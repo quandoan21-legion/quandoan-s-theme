@@ -1,6 +1,8 @@
 <?php
 
-namespace Src\Shared\Controllers;
+namespace SharedController\ListLayout\Controller;
+
+use Src\Shared\Controllers\Layout as Layout;
 
 class ListLayout implements Layout
 {

@@ -14,6 +14,7 @@
       "Portfolios\\": "src/Portfolios/",
       "TextWithPictureLayout\\": "src/TextWithPictureLayout/",
       "TextWithPostsLayout\\": "src/TextWithPostsLayout/",
+      "SharedController\\": "src/Shared/Controllers/",
       "Banner\\": "src/Banner/",
       "Posts\\": "src/Posts/",
       "MessageLayout\\": "src/MessageLayout/",
