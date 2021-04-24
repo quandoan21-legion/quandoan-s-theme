@@ -1,15 +1,16 @@
 <?php
 
 namespace SharedController\GridLayout\Controller;
-use Src\Shared\Controllers\Layout as Layout;
+
+use Src\Shared\Controllers\ILayout as ILayout;
 
 use WP_Post;
 
-class GridLayout implements Layout
+class GridLayout implements ILayout
 {
     public function renderLayout(WP_Post $post, array $aAtts)
     {
-        $imgUrl           = get_the_post_thumbnail_url($post->ID);
+        $imgUrl           = esc_url(get_the_post_thumbnail_url($post->ID));
         $containerClasses = "col-12 col-lg-" . $aAtts['items_per_row'] . " work-box";
 
         if (strlen($imgUrl) == 0) {
@@ -22,17 +23,18 @@ class GridLayout implements Layout
 
                 <div class="<?php echo esc_attr($aAtts['inner_classes']); ?>">
 
-                    <img class="photobox__preview attachment-<?php echo esc_attr($aAtts['image_size']) ?>"
-                         src="<?php echo esc_url($imgUrl) ?>" alt="<?php echo get_the_title(); ?>">
+                    <img class="photobox__preview attachment-<?php echo esc_attr($aAtts['image_size']) ?>" src="<?php echo esc_url($imgUrl) ?>" alt="<?php echo get_the_title(); ?>">
 
-                    <span class="photobox__label"><?php echo get_the_title(); ?></span>
 
+                    <a class="photobox__label" href="<?php esc_url(the_permalink($post->ID)) ?>">
+                        <?php echo esc_attr(get_the_title()); ?>
+                    </a>
                 </div>
 
             </div>
 
         </div>
 
-        <?php
+<?php
     }
 }

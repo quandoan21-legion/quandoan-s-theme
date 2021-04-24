@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SharedController\ListLayout\Controller;
+namespace SharedController\TextWithPostsLayout\Controller;
 
 use Src\Shared\Controllers\SharedController;
 use Src\Shared\Controllers\SharedLayout;

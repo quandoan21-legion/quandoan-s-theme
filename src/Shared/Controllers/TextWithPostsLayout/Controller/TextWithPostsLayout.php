@@ -2,10 +2,10 @@
 
 namespace SharedController\TextWithPostsLayout\Controller;
 
-use Src\Shared\Controllers\Layout as Layout;
+use Src\Shared\Controllers\ILayout as ILayout;
 use WP_Post;
 
-class TextWithPostsLayout implements Layout
+class TextWithPostsLayout implements ILayout
 {
     public function renderLayout(WP_Post $post, array $aAtts)
     {

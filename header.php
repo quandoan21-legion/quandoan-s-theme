@@ -48,6 +48,6 @@
 
         <!-- HERO SECTION -->
         <?php
-            do_shortcode('[banner title="This is banner title" content="123123"]');
+            do_shortcode('[banner title="This is banner title" content="This Is Banner Subtitle"]');
         ?>
     </header>

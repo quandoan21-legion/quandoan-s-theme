@@ -37,3 +37,14 @@ img.hero_img {
     width: 600px;
     object-fit: cover;
 }
+
+.single_post_img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.single_post_date {
+    font-size: 0.9rem;
+    color: hsl(205deg 5% 45%) !important;
+}
